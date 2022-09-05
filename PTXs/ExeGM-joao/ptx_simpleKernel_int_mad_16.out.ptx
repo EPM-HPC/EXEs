@@ -1,0 +1,156 @@
+
+Fatbin elf code:
+================
+arch = sm_80
+code version = [1,7]
+producer = <unknown>
+host = linux
+compile_size = 64bit
+
+Fatbin elf code:
+================
+arch = sm_80
+code version = [1,7]
+producer = <unknown>
+host = linux
+compile_size = 64bit
+
+Fatbin ptx code:
+================
+arch = sm_80
+code version = [7,1]
+producer = <unknown>
+host = linux
+compile_size = 64bit
+compressed
+ptxasOptions = -O0  
+
+
+
+
+
+
+
+
+.version 7.1
+.target sm_80
+.address_size 64
+
+
+
+.visible .entry _Z12simpleKernelIiEvPT_S1_S1_S1_S1_(
+.param .u64 _Z12simpleKernelIiEvPT_S1_S1_S1_S1__param_0,
+.param .u64 _Z12simpleKernelIiEvPT_S1_S1_S1_S1__param_1,
+.param .u64 _Z12simpleKernelIiEvPT_S1_S1_S1_S1__param_2,
+.param .u64 _Z12simpleKernelIiEvPT_S1_S1_S1_S1__param_3,
+.param .u64 _Z12simpleKernelIiEvPT_S1_S1_S1_S1__param_4
+)
+{
+.reg .pred %p<2>;
+.reg .b32 %r<73>;
+.reg .b64 %rd<19>;
+
+
+ld.param.u64 %rd1, [_Z12simpleKernelIiEvPT_S1_S1_S1_S1__param_0];
+ld.param.u64 %rd2, [_Z12simpleKernelIiEvPT_S1_S1_S1_S1__param_1];
+ld.param.u64 %rd3, [_Z12simpleKernelIiEvPT_S1_S1_S1_S1__param_2];
+ld.param.u64 %rd4, [_Z12simpleKernelIiEvPT_S1_S1_S1_S1__param_3];
+ld.param.u64 %rd5, [_Z12simpleKernelIiEvPT_S1_S1_S1_S1__param_4];
+mov.u32 %r2, %ctaid.x;
+shl.b32 %r3, %r2, 10;
+mov.u32 %r4, %tid.x;
+add.s32 %r1, %r3, %r4;
+setp.gt.s32	%p1, %r1, 59999999;
+@%p1 bra BB0_2;
+
+cvta.to.global.u64 %rd6, %rd1;
+cvta.to.global.u64 %rd7, %rd2;
+mul.wide.s32 %rd8, %r1, 4;
+add.s64 %rd9, %rd6, %rd8;
+mov.u32 %r5, 60000000;
+sub.s32 %r6, %r5, %r1;
+mul.wide.s32 %rd10, %r6, 4;
+add.s64 %rd11, %rd6, %rd10;
+ld.global.u32 %r7, [%rd9];
+ld.global.u32 %r8, [%rd11];
+mad.lo.s32 %r9, %r7, %r7, %r8;
+mad.lo.s32 %r10, %r8, %r8, %r7;
+mad.lo.s32 %r11, %r9, %r7, %r8;
+mad.lo.s32 %r12, %r10, %r8, %r9;
+mad.lo.s32 %r13, %r11, %r9, %r10;
+mad.lo.s32 %r14, %r12, %r10, %r11;
+mad.lo.s32 %r15, %r13, %r11, %r12;
+mad.lo.s32 %r16, %r14, %r12, %r13;
+mad.lo.s32 %r17, %r15, %r13, %r14;
+mad.lo.s32 %r18, %r16, %r14, %r15;
+mad.lo.s32 %r19, %r17, %r15, %r16;
+mad.lo.s32 %r20, %r18, %r16, %r17;
+mad.lo.s32 %r21, %r19, %r17, %r18;
+mad.lo.s32 %r22, %r20, %r18, %r19;
+mad.lo.s32 %r23, %r21, %r19, %r20;
+mad.lo.s32 %r24, %r22, %r20, %r21;
+mad.lo.s32 %r25, %r23, %r21, %r22;
+mad.lo.s32 %r26, %r24, %r22, %r23;
+mad.lo.s32 %r27, %r25, %r23, %r24;
+mad.lo.s32 %r28, %r26, %r24, %r25;
+mad.lo.s32 %r29, %r27, %r25, %r26;
+mad.lo.s32 %r30, %r28, %r26, %r27;
+mad.lo.s32 %r31, %r29, %r27, %r28;
+mad.lo.s32 %r32, %r30, %r28, %r29;
+mad.lo.s32 %r33, %r31, %r29, %r30;
+mad.lo.s32 %r34, %r32, %r30, %r31;
+mad.lo.s32 %r35, %r33, %r31, %r32;
+mad.lo.s32 %r36, %r34, %r32, %r33;
+mad.lo.s32 %r37, %r35, %r33, %r34;
+mad.lo.s32 %r38, %r36, %r34, %r35;
+mad.lo.s32 %r39, %r37, %r35, %r36;
+mad.lo.s32 %r40, %r38, %r36, %r37;
+mad.lo.s32 %r41, %r39, %r37, %r38;
+mad.lo.s32 %r42, %r40, %r38, %r39;
+mad.lo.s32 %r43, %r41, %r39, %r40;
+mad.lo.s32 %r44, %r42, %r40, %r41;
+mad.lo.s32 %r45, %r43, %r41, %r42;
+mad.lo.s32 %r46, %r44, %r42, %r43;
+mad.lo.s32 %r47, %r45, %r43, %r44;
+mad.lo.s32 %r48, %r46, %r44, %r45;
+mad.lo.s32 %r49, %r47, %r45, %r46;
+mad.lo.s32 %r50, %r48, %r46, %r47;
+mad.lo.s32 %r51, %r49, %r47, %r48;
+mad.lo.s32 %r52, %r50, %r48, %r49;
+mad.lo.s32 %r53, %r51, %r49, %r50;
+mad.lo.s32 %r54, %r52, %r50, %r51;
+mad.lo.s32 %r55, %r53, %r51, %r52;
+mad.lo.s32 %r56, %r54, %r52, %r53;
+mad.lo.s32 %r57, %r55, %r53, %r54;
+mad.lo.s32 %r58, %r56, %r54, %r55;
+mad.lo.s32 %r59, %r57, %r55, %r56;
+mad.lo.s32 %r60, %r58, %r56, %r57;
+mad.lo.s32 %r61, %r59, %r57, %r58;
+mad.lo.s32 %r62, %r60, %r58, %r59;
+mad.lo.s32 %r63, %r61, %r59, %r60;
+mad.lo.s32 %r64, %r62, %r60, %r61;
+mad.lo.s32 %r65, %r63, %r61, %r62;
+mad.lo.s32 %r66, %r64, %r62, %r63;
+mad.lo.s32 %r67, %r65, %r63, %r64;
+mad.lo.s32 %r68, %r66, %r64, %r65;
+mad.lo.s32 %r69, %r67, %r65, %r66;
+mad.lo.s32 %r70, %r68, %r66, %r67;
+mad.lo.s32 %r71, %r69, %r67, %r68;
+mad.lo.s32 %r72, %r70, %r68, %r69;
+add.s64 %rd12, %rd7, %rd8;
+st.global.u32 [%rd12], %r69;
+cvta.to.global.u64 %rd13, %rd3;
+add.s64 %rd14, %rd13, %rd8;
+st.global.u32 [%rd14], %r70;
+cvta.to.global.u64 %rd15, %rd4;
+add.s64 %rd16, %rd15, %rd8;
+st.global.u32 [%rd16], %r71;
+cvta.to.global.u64 %rd17, %rd5;
+add.s64 %rd18, %rd17, %rd8;
+st.global.u32 [%rd18], %r72;
+
+BB0_2:
+ret;
+}
+
+

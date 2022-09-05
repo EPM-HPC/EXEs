@@ -1,0 +1,10 @@
+ENERGYs/*
+ExeRodinia2/*
+PROFs/*
+
+ExeTango/ExeTangoAlexNet/data/*  
+ExeTango/ExeTangoCifarNet/data/*    
+ExeTango/ExeTangoGRU/data/*    
+ExeTango/ExeTangoLSTM/data/*    
+ExeTango/ExeTangoResNet/data/*    
+ExeTango/ExeTangoSqueezeNet/data/*  
