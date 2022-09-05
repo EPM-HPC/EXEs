@@ -1,0 +1,29 @@
+dp.out                        
+simpleKernel_int_add_4096.out
+DRAM_sp.out                   simpleKernel_int_add_4.out
+eventL2cache_sp_2048_1.out    simpleKernel_int_add_512.out
+eventL2cache_sp_2048_32.out   simpleKernel_int_mad_16.out
+eventL2cache_sp_2048_8.out    simpleKernel_int_mad_4096.out
+eventL2cache_sp_512_1.out     simpleKernel_int_mad_4.out
+eventL2cache_sp_512_32.out    simpleKernel_int_mad_512.out
+eventL2cache_sp_512_8.out     simpleKernel_int_mul_16.out
+eventL2cache_sp_8192_1.out    simpleKernel_int_mul_4096.out
+eventL2cache_sp_8192_32.out   simpleKernel_int_mul_4.out
+eventL2cache_sp_8192_8.out    simpleKernel_int_mul_512.out
+int.out                       simpleKernel_shared_1.out
+L2cache_sp.out                simpleKernel_shared_256.out
+simpleKernel_shared_32.out
+sharedmem.out                 simpleKernel_shared_8192.out
+simpleKernel_dp_add_16.out    simpleKernel_sp_add_16.out
+simpleKernel_dp_add_4096.out  simpleKernel_sp_add_4096.out
+simpleKernel_dp_add_4.out     simpleKernel_sp_add_4.out
+simpleKernel_dp_add_512.out   simpleKernel_sp_add_512.out
+simpleKernel_dp_fma_16.out    simpleKernel_sp_fma_16.out
+simpleKernel_dp_fma_4096.out  simpleKernel_sp_fma_4096.out
+simpleKernel_dp_fma_4.out     simpleKernel_sp_fma_4.out
+simpleKernel_dp_fma_512.out   simpleKernel_sp_fma_512.out
+simpleKernel_dp_mul_16.out    simpleKernel_sp_mul_16.out
+simpleKernel_dp_mul_4096.out  simpleKernel_sp_mul_4096.out
+simpleKernel_dp_mul_4.out     simpleKernel_sp_mul_4.out
+simpleKernel_dp_mul_512.out   simpleKernel_sp_mul_512.out
+simpleKernel_int_add_16.out   sp.out

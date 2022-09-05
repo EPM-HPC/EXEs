@@ -1,0 +1,9 @@
+atomic_add_bw_conflict.out  l1_lat.out        mem_bw.out
+atomic_add_bw.out           l1_shared_bw.out  mem_lat.out
+atomic_add_lat.out          l2_bw_128.out     microbench-oo-vfunc-test.out
+l1_bw_128.out               l2_bw_32f.out     microbench-tensor-core-test.out
+l1_bw_32f.out               l2_bw_64f.out     shared_bw.out
+l1_bw_32f_unroll_large.out  l2_lat.out        shared_lat.out
+l1_bw_32f_unroll.out        
+l1_bw_64f.out               
+MaxFlops.out
