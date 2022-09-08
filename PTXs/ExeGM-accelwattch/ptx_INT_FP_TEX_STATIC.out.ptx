@@ -1,0 +1,1377 @@
+
+Fatbin elf code:
+================
+arch = sm_80
+code version = [1,7]
+producer = <unknown>
+host = linux
+compile_size = 64bit
+
+Fatbin ptx code:
+================
+arch = sm_80
+code version = [7,1]
+producer = <unknown>
+host = linux
+compile_size = 64bit
+compressed
+
+
+
+
+
+
+
+
+.version 7.1
+.target sm_80
+.address_size 64
+
+
+.global .texref texmem1;
+.global .texref texmem2;
+.global .texref texmem3;
+.global .texref texmem4;
+.global .texref texmem5;
+.global .texref texmem6;
+.global .texref texmem7;
+.global .texref texmem9;
+.global .texref texmem8;
+
+.visible .entry _Z16power_microbenchPfS_PjS0_S_ijS_j(
+.param .u64 _Z16power_microbenchPfS_PjS0_S_ijS_j_param_0,
+.param .u64 _Z16power_microbenchPfS_PjS0_S_ijS_j_param_1,
+.param .u64 _Z16power_microbenchPfS_PjS0_S_ijS_j_param_2,
+.param .u64 _Z16power_microbenchPfS_PjS0_S_ijS_j_param_3,
+.param .u64 _Z16power_microbenchPfS_PjS0_S_ijS_j_param_4,
+.param .u32 _Z16power_microbenchPfS_PjS0_S_ijS_j_param_5,
+.param .u32 _Z16power_microbenchPfS_PjS0_S_ijS_j_param_6,
+.param .u64 _Z16power_microbenchPfS_PjS0_S_ijS_j_param_7,
+.param .u32 _Z16power_microbenchPfS_PjS0_S_ijS_j_param_8
+)
+{
+.reg .pred %p<9>;
+.reg .f32 %f<955>;
+.reg .b32 %r<565>;
+.reg .b64 %rd<20>;
+
+
+ld.param.u64 %rd5, [_Z16power_microbenchPfS_PjS0_S_ijS_j_param_0];
+ld.param.u64 %rd6, [_Z16power_microbenchPfS_PjS0_S_ijS_j_param_2];
+ld.param.u32 %r24, [_Z16power_microbenchPfS_PjS0_S_ijS_j_param_5];
+ld.param.u32 %r23, [_Z16power_microbenchPfS_PjS0_S_ijS_j_param_6];
+ld.param.u32 %r25, [_Z16power_microbenchPfS_PjS0_S_ijS_j_param_8];
+mov.u32 %r26, %ntid.x;
+mov.u32 %r27, %ctaid.x;
+mov.u32 %r28, %tid.x;
+mad.lo.s32 %r1, %r26, %r27, %r28;
+cvt.s64.s32	%rd1, %r1;
+cvta.to.global.u64 %rd7, %rd5;
+mul.wide.s32 %rd8, %r1, 4;
+add.s64 %rd9, %rd7, %rd8;
+ld.global.f32 %f943, [%rd9];
+cvta.to.global.u64 %rd10, %rd6;
+add.s64 %rd11, %rd10, %rd8;
+ld.global.u32 %r557, [%rd11];
+
+	bar.sync 0;
+
+	setp.lt.u32	%p1, %r1, %r25;
+shr.s32 %r29, %r1, 31;
+shr.u32 %r30, %r29, 27;
+add.s32 %r31, %r1, %r30;
+and.b32 %r32, %r31, -32;
+sub.s32 %r33, %r1, %r32;
+setp.lt.s32	%p2, %r33, %r24;
+and.pred %p3, %p1, %p2;
+mov.f32 %f942, 0f00000000;
+mov.f32 %f953, %f942;
+mov.f32 %f950, %f942;
+@!%p3 bra BB0_10;
+bra.uni BB0_1;
+
+BB0_1:
+setp.eq.s32	%p4, %r23, 0;
+mov.f32 %f953, %f942;
+mov.f32 %f950, %f942;
+@%p4 bra BB0_10;
+
+cvt.u32.u64	%r38, %rd1;
+add.s32 %r3, %r38, 1;
+mul.hi.s32 %r39, %r23, 1374389535;
+shr.u32 %r40, %r39, 31;
+shr.s32 %r41, %r39, 5;
+add.s32 %r42, %r41, %r40;
+mul.lo.s32 %r558, %r42, 100;
+mov.f32 %f950, 0f00000000;
+mov.u32 %r555, 0;
+setp.lt.s32	%p5, %r558, 1;
+@%p5 bra BB0_3;
+
+mov.u32 %r556, %r555;
+mov.f32 %f942, %f950;
+
+BB0_5:
+.pragma "nounroll";
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r443, %r556, %r3;
+tex.1d.v4.f32.s32	{%f433, %f434, %f435, %f436}, [texmem1, {%r443}];
+add.f32 %f437, %f950, %f433;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r444, %r556, %r3;
+tex.1d.v4.f32.s32	{%f438, %f439, %f440, %f441}, [texmem1, {%r444}];
+add.f32 %f442, %f437, %f438;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r445, %r556, %r3;
+tex.1d.v4.f32.s32	{%f443, %f444, %f445, %f446}, [texmem1, {%r445}];
+add.f32 %f447, %f442, %f443;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r446, %r556, %r3;
+tex.1d.v4.f32.s32	{%f448, %f449, %f450, %f451}, [texmem1, {%r446}];
+add.f32 %f452, %f447, %f448;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r447, %r556, %r3;
+tex.1d.v4.f32.s32	{%f453, %f454, %f455, %f456}, [texmem1, {%r447}];
+add.f32 %f457, %f452, %f453;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r448, %r556, %r3;
+tex.1d.v4.f32.s32	{%f458, %f459, %f460, %f461}, [texmem1, {%r448}];
+add.f32 %f462, %f457, %f458;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r449, %r556, %r3;
+tex.1d.v4.f32.s32	{%f463, %f464, %f465, %f466}, [texmem1, {%r449}];
+add.f32 %f467, %f462, %f463;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r450, %r556, %r3;
+tex.1d.v4.f32.s32	{%f468, %f469, %f470, %f471}, [texmem1, {%r450}];
+add.f32 %f472, %f467, %f468;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r451, %r556, %r3;
+tex.1d.v4.f32.s32	{%f473, %f474, %f475, %f476}, [texmem1, {%r451}];
+add.f32 %f477, %f472, %f473;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r452, %r556, %r3;
+tex.1d.v4.f32.s32	{%f478, %f479, %f480, %f481}, [texmem1, {%r452}];
+add.f32 %f482, %f477, %f478;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r453, %r556, %r3;
+tex.1d.v4.f32.s32	{%f483, %f484, %f485, %f486}, [texmem1, {%r453}];
+add.f32 %f487, %f482, %f483;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r454, %r556, %r3;
+tex.1d.v4.f32.s32	{%f488, %f489, %f490, %f491}, [texmem1, {%r454}];
+add.f32 %f492, %f487, %f488;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r455, %r556, %r3;
+tex.1d.v4.f32.s32	{%f493, %f494, %f495, %f496}, [texmem1, {%r455}];
+add.f32 %f497, %f492, %f493;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r456, %r556, %r3;
+tex.1d.v4.f32.s32	{%f498, %f499, %f500, %f501}, [texmem1, {%r456}];
+add.f32 %f502, %f497, %f498;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r457, %r556, %r3;
+tex.1d.v4.f32.s32	{%f503, %f504, %f505, %f506}, [texmem1, {%r457}];
+add.f32 %f507, %f502, %f503;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r458, %r556, %r3;
+tex.1d.v4.f32.s32	{%f508, %f509, %f510, %f511}, [texmem1, {%r458}];
+add.f32 %f512, %f507, %f508;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r459, %r556, %r3;
+tex.1d.v4.f32.s32	{%f513, %f514, %f515, %f516}, [texmem1, {%r459}];
+add.f32 %f517, %f512, %f513;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r460, %r556, %r3;
+tex.1d.v4.f32.s32	{%f518, %f519, %f520, %f521}, [texmem1, {%r460}];
+add.f32 %f522, %f517, %f518;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r461, %r556, %r3;
+tex.1d.v4.f32.s32	{%f523, %f524, %f525, %f526}, [texmem1, {%r461}];
+add.f32 %f527, %f522, %f523;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r462, %r556, %r3;
+tex.1d.v4.f32.s32	{%f528, %f529, %f530, %f531}, [texmem1, {%r462}];
+add.f32 %f532, %f527, %f528;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r463, %r556, %r3;
+tex.1d.v4.f32.s32	{%f533, %f534, %f535, %f536}, [texmem1, {%r463}];
+add.f32 %f537, %f532, %f533;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r464, %r556, %r3;
+tex.1d.v4.f32.s32	{%f538, %f539, %f540, %f541}, [texmem1, {%r464}];
+add.f32 %f542, %f537, %f538;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r465, %r556, %r3;
+tex.1d.v4.f32.s32	{%f543, %f544, %f545, %f546}, [texmem1, {%r465}];
+add.f32 %f547, %f542, %f543;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r466, %r556, %r3;
+tex.1d.v4.f32.s32	{%f548, %f549, %f550, %f551}, [texmem1, {%r466}];
+add.f32 %f552, %f547, %f548;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r467, %r556, %r3;
+tex.1d.v4.f32.s32	{%f553, %f554, %f555, %f556}, [texmem1, {%r467}];
+add.f32 %f557, %f552, %f553;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r468, %r556, %r3;
+tex.1d.v4.f32.s32	{%f558, %f559, %f560, %f561}, [texmem1, {%r468}];
+add.f32 %f562, %f557, %f558;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r469, %r556, %r3;
+tex.1d.v4.f32.s32	{%f563, %f564, %f565, %f566}, [texmem1, {%r469}];
+add.f32 %f567, %f562, %f563;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r470, %r556, %r3;
+tex.1d.v4.f32.s32	{%f568, %f569, %f570, %f571}, [texmem1, {%r470}];
+add.f32 %f572, %f567, %f568;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r471, %r556, %r3;
+tex.1d.v4.f32.s32	{%f573, %f574, %f575, %f576}, [texmem1, {%r471}];
+add.f32 %f577, %f572, %f573;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r472, %r556, %r3;
+tex.1d.v4.f32.s32	{%f578, %f579, %f580, %f581}, [texmem1, {%r472}];
+add.f32 %f582, %f577, %f578;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r473, %r556, %r3;
+tex.1d.v4.f32.s32	{%f583, %f584, %f585, %f586}, [texmem1, {%r473}];
+add.f32 %f587, %f582, %f583;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r474, %r556, %r3;
+tex.1d.v4.f32.s32	{%f588, %f589, %f590, %f591}, [texmem1, {%r474}];
+add.f32 %f592, %f587, %f588;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r475, %r556, %r3;
+tex.1d.v4.f32.s32	{%f593, %f594, %f595, %f596}, [texmem1, {%r475}];
+add.f32 %f597, %f592, %f593;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r476, %r556, %r3;
+tex.1d.v4.f32.s32	{%f598, %f599, %f600, %f601}, [texmem1, {%r476}];
+add.f32 %f602, %f597, %f598;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r477, %r556, %r3;
+tex.1d.v4.f32.s32	{%f603, %f604, %f605, %f606}, [texmem1, {%r477}];
+add.f32 %f607, %f602, %f603;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r478, %r556, %r3;
+tex.1d.v4.f32.s32	{%f608, %f609, %f610, %f611}, [texmem1, {%r478}];
+add.f32 %f612, %f607, %f608;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r479, %r556, %r3;
+tex.1d.v4.f32.s32	{%f613, %f614, %f615, %f616}, [texmem1, {%r479}];
+add.f32 %f617, %f612, %f613;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r480, %r556, %r3;
+tex.1d.v4.f32.s32	{%f618, %f619, %f620, %f621}, [texmem1, {%r480}];
+add.f32 %f622, %f617, %f618;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r481, %r556, %r3;
+tex.1d.v4.f32.s32	{%f623, %f624, %f625, %f626}, [texmem1, {%r481}];
+add.f32 %f627, %f622, %f623;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r482, %r556, %r3;
+tex.1d.v4.f32.s32	{%f628, %f629, %f630, %f631}, [texmem1, {%r482}];
+add.f32 %f632, %f627, %f628;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r483, %r556, %r3;
+tex.1d.v4.f32.s32	{%f633, %f634, %f635, %f636}, [texmem1, {%r483}];
+add.f32 %f637, %f632, %f633;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r484, %r556, %r3;
+tex.1d.v4.f32.s32	{%f638, %f639, %f640, %f641}, [texmem1, {%r484}];
+add.f32 %f642, %f637, %f638;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r485, %r556, %r3;
+tex.1d.v4.f32.s32	{%f643, %f644, %f645, %f646}, [texmem1, {%r485}];
+add.f32 %f647, %f642, %f643;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r486, %r556, %r3;
+tex.1d.v4.f32.s32	{%f648, %f649, %f650, %f651}, [texmem1, {%r486}];
+add.f32 %f652, %f647, %f648;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r487, %r556, %r3;
+tex.1d.v4.f32.s32	{%f653, %f654, %f655, %f656}, [texmem1, {%r487}];
+add.f32 %f657, %f652, %f653;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r488, %r556, %r3;
+tex.1d.v4.f32.s32	{%f658, %f659, %f660, %f661}, [texmem1, {%r488}];
+add.f32 %f662, %f657, %f658;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r489, %r556, %r3;
+tex.1d.v4.f32.s32	{%f663, %f664, %f665, %f666}, [texmem1, {%r489}];
+add.f32 %f667, %f662, %f663;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r490, %r556, %r3;
+tex.1d.v4.f32.s32	{%f668, %f669, %f670, %f671}, [texmem1, {%r490}];
+add.f32 %f672, %f667, %f668;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r491, %r556, %r3;
+tex.1d.v4.f32.s32	{%f673, %f674, %f675, %f676}, [texmem1, {%r491}];
+add.f32 %f677, %f672, %f673;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r492, %r556, %r3;
+tex.1d.v4.f32.s32	{%f678, %f679, %f680, %f681}, [texmem1, {%r492}];
+add.f32 %f682, %f677, %f678;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r493, %r556, %r3;
+tex.1d.v4.f32.s32	{%f683, %f684, %f685, %f686}, [texmem1, {%r493}];
+add.f32 %f687, %f682, %f683;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r494, %r556, %r3;
+tex.1d.v4.f32.s32	{%f688, %f689, %f690, %f691}, [texmem1, {%r494}];
+add.f32 %f692, %f687, %f688;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r495, %r556, %r3;
+tex.1d.v4.f32.s32	{%f693, %f694, %f695, %f696}, [texmem1, {%r495}];
+add.f32 %f697, %f692, %f693;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r496, %r556, %r3;
+tex.1d.v4.f32.s32	{%f698, %f699, %f700, %f701}, [texmem1, {%r496}];
+add.f32 %f702, %f697, %f698;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r497, %r556, %r3;
+tex.1d.v4.f32.s32	{%f703, %f704, %f705, %f706}, [texmem1, {%r497}];
+add.f32 %f707, %f702, %f703;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r498, %r556, %r3;
+tex.1d.v4.f32.s32	{%f708, %f709, %f710, %f711}, [texmem1, {%r498}];
+add.f32 %f712, %f707, %f708;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r499, %r556, %r3;
+tex.1d.v4.f32.s32	{%f713, %f714, %f715, %f716}, [texmem1, {%r499}];
+add.f32 %f717, %f712, %f713;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r500, %r556, %r3;
+tex.1d.v4.f32.s32	{%f718, %f719, %f720, %f721}, [texmem1, {%r500}];
+add.f32 %f722, %f717, %f718;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r501, %r556, %r3;
+tex.1d.v4.f32.s32	{%f723, %f724, %f725, %f726}, [texmem1, {%r501}];
+add.f32 %f727, %f722, %f723;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r502, %r556, %r3;
+tex.1d.v4.f32.s32	{%f728, %f729, %f730, %f731}, [texmem1, {%r502}];
+add.f32 %f732, %f727, %f728;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r503, %r556, %r3;
+tex.1d.v4.f32.s32	{%f733, %f734, %f735, %f736}, [texmem1, {%r503}];
+add.f32 %f737, %f732, %f733;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r504, %r556, %r3;
+tex.1d.v4.f32.s32	{%f738, %f739, %f740, %f741}, [texmem1, {%r504}];
+add.f32 %f742, %f737, %f738;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r505, %r556, %r3;
+tex.1d.v4.f32.s32	{%f743, %f744, %f745, %f746}, [texmem1, {%r505}];
+add.f32 %f747, %f742, %f743;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r506, %r556, %r3;
+tex.1d.v4.f32.s32	{%f748, %f749, %f750, %f751}, [texmem1, {%r506}];
+add.f32 %f752, %f747, %f748;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r507, %r556, %r3;
+tex.1d.v4.f32.s32	{%f753, %f754, %f755, %f756}, [texmem1, {%r507}];
+add.f32 %f757, %f752, %f753;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r508, %r556, %r3;
+tex.1d.v4.f32.s32	{%f758, %f759, %f760, %f761}, [texmem1, {%r508}];
+add.f32 %f762, %f757, %f758;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r509, %r556, %r3;
+tex.1d.v4.f32.s32	{%f763, %f764, %f765, %f766}, [texmem1, {%r509}];
+add.f32 %f767, %f762, %f763;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r510, %r556, %r3;
+tex.1d.v4.f32.s32	{%f768, %f769, %f770, %f771}, [texmem1, {%r510}];
+add.f32 %f772, %f767, %f768;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r511, %r556, %r3;
+tex.1d.v4.f32.s32	{%f773, %f774, %f775, %f776}, [texmem1, {%r511}];
+add.f32 %f777, %f772, %f773;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r512, %r556, %r3;
+tex.1d.v4.f32.s32	{%f778, %f779, %f780, %f781}, [texmem1, {%r512}];
+add.f32 %f782, %f777, %f778;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r513, %r556, %r3;
+tex.1d.v4.f32.s32	{%f783, %f784, %f785, %f786}, [texmem1, {%r513}];
+add.f32 %f787, %f782, %f783;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r514, %r556, %r3;
+tex.1d.v4.f32.s32	{%f788, %f789, %f790, %f791}, [texmem1, {%r514}];
+add.f32 %f792, %f787, %f788;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r515, %r556, %r3;
+tex.1d.v4.f32.s32	{%f793, %f794, %f795, %f796}, [texmem1, {%r515}];
+add.f32 %f797, %f792, %f793;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r516, %r556, %r3;
+tex.1d.v4.f32.s32	{%f798, %f799, %f800, %f801}, [texmem1, {%r516}];
+add.f32 %f802, %f797, %f798;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r517, %r556, %r3;
+tex.1d.v4.f32.s32	{%f803, %f804, %f805, %f806}, [texmem1, {%r517}];
+add.f32 %f807, %f802, %f803;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r518, %r556, %r3;
+tex.1d.v4.f32.s32	{%f808, %f809, %f810, %f811}, [texmem1, {%r518}];
+add.f32 %f812, %f807, %f808;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r519, %r556, %r3;
+tex.1d.v4.f32.s32	{%f813, %f814, %f815, %f816}, [texmem1, {%r519}];
+add.f32 %f817, %f812, %f813;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r520, %r556, %r3;
+tex.1d.v4.f32.s32	{%f818, %f819, %f820, %f821}, [texmem1, {%r520}];
+add.f32 %f822, %f817, %f818;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r521, %r556, %r3;
+tex.1d.v4.f32.s32	{%f823, %f824, %f825, %f826}, [texmem1, {%r521}];
+add.f32 %f827, %f822, %f823;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r522, %r556, %r3;
+tex.1d.v4.f32.s32	{%f828, %f829, %f830, %f831}, [texmem1, {%r522}];
+add.f32 %f832, %f827, %f828;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r523, %r556, %r3;
+tex.1d.v4.f32.s32	{%f833, %f834, %f835, %f836}, [texmem1, {%r523}];
+add.f32 %f837, %f832, %f833;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r524, %r556, %r3;
+tex.1d.v4.f32.s32	{%f838, %f839, %f840, %f841}, [texmem1, {%r524}];
+add.f32 %f842, %f837, %f838;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r525, %r556, %r3;
+tex.1d.v4.f32.s32	{%f843, %f844, %f845, %f846}, [texmem1, {%r525}];
+add.f32 %f847, %f842, %f843;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r526, %r556, %r3;
+tex.1d.v4.f32.s32	{%f848, %f849, %f850, %f851}, [texmem1, {%r526}];
+add.f32 %f852, %f847, %f848;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r527, %r556, %r3;
+tex.1d.v4.f32.s32	{%f853, %f854, %f855, %f856}, [texmem1, {%r527}];
+add.f32 %f857, %f852, %f853;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r528, %r556, %r3;
+tex.1d.v4.f32.s32	{%f858, %f859, %f860, %f861}, [texmem1, {%r528}];
+add.f32 %f862, %f857, %f858;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r529, %r556, %r3;
+tex.1d.v4.f32.s32	{%f863, %f864, %f865, %f866}, [texmem1, {%r529}];
+add.f32 %f867, %f862, %f863;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r530, %r556, %r3;
+tex.1d.v4.f32.s32	{%f868, %f869, %f870, %f871}, [texmem1, {%r530}];
+add.f32 %f872, %f867, %f868;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r531, %r556, %r3;
+tex.1d.v4.f32.s32	{%f873, %f874, %f875, %f876}, [texmem1, {%r531}];
+add.f32 %f877, %f872, %f873;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r532, %r556, %r3;
+tex.1d.v4.f32.s32	{%f878, %f879, %f880, %f881}, [texmem1, {%r532}];
+add.f32 %f882, %f877, %f878;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r533, %r556, %r3;
+tex.1d.v4.f32.s32	{%f883, %f884, %f885, %f886}, [texmem1, {%r533}];
+add.f32 %f887, %f882, %f883;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r534, %r556, %r3;
+tex.1d.v4.f32.s32	{%f888, %f889, %f890, %f891}, [texmem1, {%r534}];
+add.f32 %f892, %f887, %f888;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r535, %r556, %r3;
+tex.1d.v4.f32.s32	{%f893, %f894, %f895, %f896}, [texmem1, {%r535}];
+add.f32 %f897, %f892, %f893;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r536, %r556, %r3;
+tex.1d.v4.f32.s32	{%f898, %f899, %f900, %f901}, [texmem1, {%r536}];
+add.f32 %f902, %f897, %f898;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r537, %r556, %r3;
+tex.1d.v4.f32.s32	{%f903, %f904, %f905, %f906}, [texmem1, {%r537}];
+add.f32 %f907, %f902, %f903;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r538, %r556, %r3;
+tex.1d.v4.f32.s32	{%f908, %f909, %f910, %f911}, [texmem1, {%r538}];
+add.f32 %f912, %f907, %f908;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r539, %r556, %r3;
+tex.1d.v4.f32.s32	{%f913, %f914, %f915, %f916}, [texmem1, {%r539}];
+add.f32 %f917, %f912, %f913;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r540, %r556, %r3;
+tex.1d.v4.f32.s32	{%f918, %f919, %f920, %f921}, [texmem1, {%r540}];
+add.f32 %f922, %f917, %f918;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r541, %r556, %r3;
+tex.1d.v4.f32.s32	{%f923, %f924, %f925, %f926}, [texmem1, {%r541}];
+add.f32 %f927, %f922, %f923;
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r542, %r556, %r3;
+tex.1d.v4.f32.s32	{%f928, %f929, %f930, %f931}, [texmem1, {%r542}];
+add.f32 %f950, %f927, %f928;
+add.s32 %r555, %r555, 100;
+setp.ne.s32	%p6, %r555, %r558;
+@%p6 bra BB0_5;
+
+ld.param.u32 %r549, [_Z16power_microbenchPfS_PjS0_S_ijS_j_param_6];
+sub.s32 %r548, %r549, %r558;
+setp.eq.s32	%p7, %r548, 0;
+@%p7 bra BB0_9;
+bra.uni BB0_7;
+
+BB0_3:
+mov.u32 %r558, %r555;
+mov.u32 %r556, %r555;
+mov.f32 %f942, %f950;
+
+BB0_7:
+ld.param.u32 %r550, [_Z16power_microbenchPfS_PjS0_S_ijS_j_param_6];
+sub.s32 %r561, %r558, %r550;
+
+BB0_8:
+.pragma "nounroll";
+
+	{	
+add.f32 %f942, %f943, %f942;
+add.u32 %r557, %r556, %r557;
+add.u32 %r557, %r556, %r557;
+fma.rn.f32 %f943, %f943, %f943 , %f942;
+mad.lo.u32 %r556, %r556, %r556 , %r557;
+}
+
+	rem.u32 %r547, %r556, %r3;
+tex.1d.v4.f32.s32	{%f936, %f937, %f938, %f939}, [texmem1, {%r547}];
+add.f32 %f950, %f950, %f936;
+add.s32 %r561, %r561, 1;
+setp.ne.s32	%p8, %r561, 0;
+@%p8 bra BB0_8;
+
+BB0_9:
+cvt.rn.f32.u32	%f953, %r556;
+
+BB0_10:
+mov.u32 %r554, %tid.x;
+mov.u32 %r553, %ctaid.x;
+mov.u32 %r552, %ntid.x;
+mad.lo.s32 %r551, %r552, %r553, %r554;
+mul.wide.s32 %rd19, %r551, 4;
+ld.param.u64 %rd18, [_Z16power_microbenchPfS_PjS0_S_ijS_j_param_4];
+ld.param.u64 %rd17, [_Z16power_microbenchPfS_PjS0_S_ijS_j_param_7];
+cvta.to.global.u64 %rd12, %rd17;
+cvta.to.global.u64 %rd13, %rd18;
+
+	bar.sync 0;
+
+	add.s64 %rd15, %rd13, %rd19;
+add.f32 %f940, %f942, %f953;
+st.global.f32 [%rd15], %f940;
+add.s64 %rd16, %rd12, %rd19;
+st.global.f32 [%rd16], %f950;
+ret;
+}
+
+

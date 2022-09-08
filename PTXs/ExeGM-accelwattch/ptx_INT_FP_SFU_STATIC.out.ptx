@@ -1,0 +1,1463 @@
+
+Fatbin elf code:
+================
+arch = sm_80
+code version = [1,7]
+producer = <unknown>
+host = linux
+compile_size = 64bit
+
+Fatbin ptx code:
+================
+arch = sm_80
+code version = [7,1]
+producer = <unknown>
+host = linux
+compile_size = 64bit
+compressed
+
+
+
+
+
+
+
+
+.version 7.1
+.target sm_80
+.address_size 64
+
+
+
+.visible .entry _Z16power_microbenchPfS_PjS0_S_ij(
+.param .u64 _Z16power_microbenchPfS_PjS0_S_ij_param_0,
+.param .u64 _Z16power_microbenchPfS_PjS0_S_ij_param_1,
+.param .u64 _Z16power_microbenchPfS_PjS0_S_ij_param_2,
+.param .u64 _Z16power_microbenchPfS_PjS0_S_ij_param_3,
+.param .u64 _Z16power_microbenchPfS_PjS0_S_ij_param_4,
+.param .u32 _Z16power_microbenchPfS_PjS0_S_ij_param_5,
+.param .u32 _Z16power_microbenchPfS_PjS0_S_ij_param_6
+)
+{
+.reg .pred %p<7>;
+.reg .f32 %f<866>;
+.reg .b32 %r<461>;
+.reg .b64 %rd<17>;
+
+
+ld.param.u64 %rd2, [_Z16power_microbenchPfS_PjS0_S_ij_param_0];
+ld.param.u64 %rd3, [_Z16power_microbenchPfS_PjS0_S_ij_param_1];
+ld.param.u64 %rd4, [_Z16power_microbenchPfS_PjS0_S_ij_param_2];
+ld.param.u32 %r23, [_Z16power_microbenchPfS_PjS0_S_ij_param_5];
+ld.param.u32 %r22, [_Z16power_microbenchPfS_PjS0_S_ij_param_6];
+mov.u32 %r24, %ntid.x;
+mov.u32 %r25, %ctaid.x;
+mov.u32 %r26, %tid.x;
+mad.lo.s32 %r1, %r24, %r25, %r26;
+cvta.to.global.u64 %rd5, %rd2;
+mul.wide.s32 %rd6, %r1, 4;
+add.s64 %rd7, %rd5, %rd6;
+ld.global.f32 %f852, [%rd7];
+cvta.to.global.u64 %rd8, %rd3;
+add.s64 %rd9, %rd8, %rd6;
+ld.global.f32 %f851, [%rd9];
+cvta.to.global.u64 %rd10, %rd4;
+add.s64 %rd11, %rd10, %rd6;
+ld.global.u32 %r453, [%rd11];
+
+	bar.sync 0;
+
+	shr.s32 %r27, %r1, 31;
+shr.u32 %r28, %r27, 27;
+add.s32 %r29, %r1, %r28;
+and.b32 %r30, %r29, -32;
+sub.s32 %r31, %r1, %r30;
+mov.f32 %f850, 0f00000000;
+setp.ge.s32	%p1, %r31, %r23;
+@%p1 bra BB0_1;
+
+setp.eq.s32	%p2, %r22, 0;
+mov.f32 %f864, %f850;
+mov.f32 %f849, %f850;
+@%p2 bra BB0_11;
+
+mul.hi.s32 %r36, %r22, 1374389535;
+shr.u32 %r37, %r36, 31;
+shr.s32 %r38, %r36, 5;
+add.s32 %r39, %r38, %r37;
+mul.lo.s32 %r454, %r39, 100;
+mov.f32 %f849, 0f00000000;
+mov.u32 %r451, 0;
+setp.lt.s32	%p3, %r454, 1;
+@%p3 bra BB0_4;
+
+mov.u32 %r452, %r451;
+mov.f32 %f850, %f849;
+
+BB0_6:
+.pragma "nounroll";
+
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	add.s32 %r451, %r451, 100;
+setp.ne.s32	%p4, %r451, %r454;
+@%p4 bra BB0_6;
+
+ld.param.u32 %r445, [_Z16power_microbenchPfS_PjS0_S_ij_param_6];
+sub.s32 %r444, %r445, %r454;
+setp.eq.s32	%p5, %r444, 0;
+@%p5 bra BB0_10;
+bra.uni BB0_8;
+
+BB0_1:
+mov.f32 %f864, %f850;
+mov.f32 %f849, %f850;
+bra.uni BB0_11;
+
+BB0_4:
+mov.u32 %r454, %r451;
+mov.u32 %r452, %r451;
+mov.f32 %f850, %f849;
+
+BB0_8:
+ld.param.u32 %r446, [_Z16power_microbenchPfS_PjS0_S_ij_param_6];
+sub.s32 %r457, %r454, %r446;
+
+BB0_9:
+.pragma "nounroll";
+
+	{	
+add.f32 %f850, %f852, %f850;
+add.u32 %r453, %r452, %r453;
+add.u32 %r453, %r452, %r453;
+sin.approx.f32 %f849, %f851;
+lg2.approx.f32 %f851, %f849;
+sqrt.rn.f32 %f851, %f851;
+ex2.approx.f32 %f851, %f851;
+fma.rn.f32 %f852, %f852, %f852 , %f850;
+mad.lo.u32 %r452, %r452, %r452 , %r453;
+}
+
+	add.s32 %r457, %r457, 1;
+setp.ne.s32	%p6, %r457, 0;
+@%p6 bra BB0_9;
+
+BB0_10:
+cvt.rn.f32.u32	%f864, %r452;
+
+BB0_11:
+mov.u32 %r450, %tid.x;
+mov.u32 %r449, %ctaid.x;
+mov.u32 %r448, %ntid.x;
+mad.lo.s32 %r447, %r448, %r449, %r450;
+mul.wide.s32 %rd16, %r447, 4;
+ld.param.u64 %rd15, [_Z16power_microbenchPfS_PjS0_S_ij_param_4];
+cvta.to.global.u64 %rd12, %rd15;
+
+	bar.sync 0;
+
+	add.f32 %f847, %f850, %f864;
+add.f32 %f848, %f849, %f847;
+add.s64 %rd14, %rd12, %rd16;
+st.global.f32 [%rd14], %f848;
+ret;
+}
+
+

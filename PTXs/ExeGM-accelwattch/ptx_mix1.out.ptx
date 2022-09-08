@@ -1,0 +1,149 @@
+
+Fatbin elf code:
+================
+arch = sm_80
+code version = [1,7]
+producer = <unknown>
+host = linux
+compile_size = 64bit
+
+Fatbin ptx code:
+================
+arch = sm_80
+code version = [7,1]
+producer = <unknown>
+host = linux
+compile_size = 64bit
+compressed
+
+
+
+
+
+
+
+
+.version 7.1
+.target sm_80
+.address_size 64
+
+
+.global .texref texmem1;
+.global .texref texmem2;
+.global .texref texmem3;
+.global .texref texmem4;
+.const .align 4 .b8 ConstArray1[1024];
+.const .align 4 .b8 ConstArray2[1024];
+
+
+
+.visible .entry _Z12PowerKernal1PfS_ii(
+.param .u64 _Z12PowerKernal1PfS_ii_param_0,
+.param .u64 _Z12PowerKernal1PfS_ii_param_1,
+.param .u32 _Z12PowerKernal1PfS_ii_param_2,
+.param .u32 _Z12PowerKernal1PfS_ii_param_3
+)
+{
+.reg .pred %p<5>;
+.reg .f32 %f<51>;
+.reg .b32 %r<21>;
+.reg .b64 %rd<14>;
+
+	.shared .align 4 .b8 _ZZ12PowerKernal1PfS_iiE2I1[1024];
+
+	.shared .align 4 .b8 _ZZ12PowerKernal1PfS_iiE2I2[1024];
+
+ld.param.u64 %rd9, [_Z12PowerKernal1PfS_ii_param_0];
+ld.param.u64 %rd10, [_Z12PowerKernal1PfS_ii_param_1];
+ld.param.u32 %r5, [_Z12PowerKernal1PfS_ii_param_2];
+ld.param.u32 %r6, [_Z12PowerKernal1PfS_ii_param_3];
+cvta.to.global.u64 %rd11, %rd10;
+mov.u32 %r7, %ctaid.x;
+mov.u32 %r8, %tid.x;
+mad.lo.s32 %r1, %r7, %r7, %r8;
+cvta.to.global.u64 %rd1, %rd9;
+mul.wide.s32 %rd12, %r1, 4;
+add.s64 %rd2, %rd1, %rd12;
+ld.global.f32 %f1, [%rd2];
+shr.s32 %r9, %r1, 31;
+shr.u32 %r10, %r9, 24;
+add.s32 %r11, %r1, %r10;
+and.b32 %r12, %r11, 1073741568;
+sub.s32 %r13, %r1, %r12;
+shl.b32 %r14, %r13, 2;
+mov.u32 %r15, _ZZ12PowerKernal1PfS_iiE2I1;
+add.s32 %r16, %r15, %r14;
+st.shared.f32 [%r16], %f1;
+add.s64 %rd3, %rd11, %rd12;
+ld.global.f32 %f2, [%rd3];
+mov.u32 %r17, _ZZ12PowerKernal1PfS_iiE2I2;
+add.s32 %r18, %r17, %r14;
+st.shared.f32 [%r18], %f2;
+bar.sync 0;
+setp.ge.s32	%p1, %r1, %r5;
+setp.eq.s32	%p2, %r6, 0;
+or.pred %p3, %p1, %p2;
+@%p3 bra BB0_3;
+
+shl.b32 %r2, %r1, 1;
+mul.wide.s32 %rd13, %r2, 4;
+add.s64 %rd8, %rd1, %rd13;
+mov.u32 %r20, 0;
+
+BB0_2:
+tex.1d.v4.f32.s32	{%f3, %f4, %f5, %f6}, [texmem1, {%r1}];
+ld.global.f32 %f7, [%rd3];
+add.f32 %f8, %f3, %f7;
+tex.1d.v4.f32.s32	{%f9, %f10, %f11, %f12}, [texmem1, {%r1}];
+add.f32 %f13, %f8, %f9;
+tex.1d.v4.f32.s32	{%f14, %f15, %f16, %f17}, [texmem2, {%r1}];
+add.f32 %f18, %f13, %f14;
+tex.1d.v4.f32.s32	{%f19, %f20, %f21, %f22}, [texmem3, {%r1}];
+add.f32 %f23, %f18, %f19;
+tex.1d.v4.f32.s32	{%f24, %f25, %f26, %f27}, [texmem4, {%r1}];
+add.f32 %f28, %f23, %f24;
+tex.1d.v4.f32.s32	{%f29, %f30, %f31, %f32}, [texmem1, {%r2}];
+add.f32 %f33, %f28, %f29;
+tex.1d.v4.f32.s32	{%f34, %f35, %f36, %f37}, [texmem2, {%r2}];
+add.f32 %f38, %f33, %f34;
+tex.1d.v4.f32.s32	{%f39, %f40, %f41, %f42}, [texmem3, {%r2}];
+add.f32 %f43, %f38, %f39;
+tex.1d.v4.f32.s32	{%f44, %f45, %f46, %f47}, [texmem4, {%r2}];
+add.f32 %f48, %f43, %f44;
+st.global.f32 [%rd8], %f48;
+ld.global.f32 %f49, [%rd2];
+add.f32 %f50, %f48, %f49;
+st.global.f32 [%rd3], %f50;
+add.s32 %r20, %r20, 1;
+setp.lt.u32	%p4, %r20, %r6;
+@%p4 bra BB0_2;
+
+BB0_3:
+ret;
+}
+
+
+.visible .entry _Z16PowerKernalEmptyPji(
+.param .u64 _Z16PowerKernalEmptyPji_param_0,
+.param .u32 _Z16PowerKernalEmptyPji_param_1
+)
+{
+.reg .b32 %r<5>;
+.reg .b64 %rd<5>;
+
+
+ld.param.u64 %rd1, [_Z16PowerKernalEmptyPji_param_0];
+mov.u32 %r2, %ntid.x;
+mov.u32 %r3, %ctaid.x;
+mov.u32 %r4, %tid.x;
+mad.lo.s32 %r1, %r3, %r2, %r4;
+bar.sync 0;
+cvta.to.global.u64 %rd2, %rd1;
+mul.wide.u32 %rd3, %r1, 4;
+add.s64 %rd4, %rd2, %rd3;
+st.global.u32 [%rd4], %r1;
+bar.sync 0;
+ret;
+}
+
+

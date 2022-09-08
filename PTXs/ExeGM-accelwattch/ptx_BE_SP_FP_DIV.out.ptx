@@ -1,0 +1,421 @@
+
+Fatbin elf code:
+================
+arch = sm_80
+code version = [1,7]
+producer = <unknown>
+host = linux
+compile_size = 64bit
+
+Fatbin ptx code:
+================
+arch = sm_80
+code version = [7,1]
+producer = <unknown>
+host = linux
+compile_size = 64bit
+compressed
+
+
+
+
+
+
+
+
+.version 7.1
+.target sm_80
+.address_size 64
+
+
+
+.visible .entry _Z12PowerKernal3PKfS0_Pfi(
+.param .u64 _Z12PowerKernal3PKfS0_Pfi_param_0,
+.param .u64 _Z12PowerKernal3PKfS0_Pfi_param_1,
+.param .u64 _Z12PowerKernal3PKfS0_Pfi_param_2,
+.param .u32 _Z12PowerKernal3PKfS0_Pfi_param_3
+)
+{
+.reg .pred %p<6>;
+.reg .f32 %f<325>;
+.reg .b32 %r<30>;
+.reg .b64 %rd<14>;
+
+
+ld.param.u64 %rd3, [_Z12PowerKernal3PKfS0_Pfi_param_0];
+ld.param.u64 %rd4, [_Z12PowerKernal3PKfS0_Pfi_param_1];
+ld.param.u32 %r10, [_Z12PowerKernal3PKfS0_Pfi_param_3];
+mov.u32 %r11, %ctaid.x;
+mov.u32 %r12, %ntid.x;
+mov.u32 %r13, %tid.x;
+mad.lo.s32 %r1, %r11, %r12, %r13;
+cvta.to.global.u64 %rd5, %rd3;
+mul.wide.s32 %rd6, %r1, 4;
+add.s64 %rd7, %rd5, %rd6;
+ld.global.f32 %f1, [%rd7];
+cvta.to.global.u64 %rd8, %rd4;
+add.s64 %rd9, %rd8, %rd6;
+ld.global.f32 %f2, [%rd9];
+bar.sync 0;
+setp.eq.s32	%p1, %r10, 0;
+mov.f32 %f322, 0f497423F0;
+@%p1 bra BB0_8;
+
+div.rn.f32 %f3, %f1, %f2;
+mul.hi.s32 %r16, %r10, 1374389535;
+shr.u32 %r17, %r16, 31;
+shr.s32 %r18, %r16, 5;
+add.s32 %r19, %r18, %r17;
+mul.lo.s32 %r28, %r19, 100;
+mov.f32 %f322, 0f497423F0;
+mov.u32 %r27, 0;
+setp.lt.s32	%p2, %r28, 1;
+@%p2 bra BB0_2;
+
+BB0_3:
+.pragma "nounroll";
+div.rn.f32 %f17, %f3, %f322;
+div.rn.f32 %f18, %f17, %f322;
+div.rn.f32 %f19, %f3, %f18;
+div.rn.f32 %f20, %f3, %f19;
+div.rn.f32 %f21, %f20, %f19;
+div.rn.f32 %f22, %f3, %f21;
+div.rn.f32 %f23, %f3, %f22;
+div.rn.f32 %f24, %f23, %f22;
+div.rn.f32 %f25, %f3, %f24;
+div.rn.f32 %f26, %f3, %f25;
+div.rn.f32 %f27, %f26, %f25;
+div.rn.f32 %f28, %f3, %f27;
+div.rn.f32 %f29, %f3, %f28;
+div.rn.f32 %f30, %f29, %f28;
+div.rn.f32 %f31, %f3, %f30;
+div.rn.f32 %f32, %f3, %f31;
+div.rn.f32 %f33, %f32, %f31;
+div.rn.f32 %f34, %f3, %f33;
+div.rn.f32 %f35, %f3, %f34;
+div.rn.f32 %f36, %f35, %f34;
+div.rn.f32 %f37, %f3, %f36;
+div.rn.f32 %f38, %f3, %f37;
+div.rn.f32 %f39, %f38, %f37;
+div.rn.f32 %f40, %f3, %f39;
+div.rn.f32 %f41, %f3, %f40;
+div.rn.f32 %f42, %f41, %f40;
+div.rn.f32 %f43, %f3, %f42;
+div.rn.f32 %f44, %f3, %f43;
+div.rn.f32 %f45, %f44, %f43;
+div.rn.f32 %f46, %f3, %f45;
+div.rn.f32 %f47, %f3, %f46;
+div.rn.f32 %f48, %f47, %f46;
+div.rn.f32 %f49, %f3, %f48;
+div.rn.f32 %f50, %f3, %f49;
+div.rn.f32 %f51, %f50, %f49;
+div.rn.f32 %f52, %f3, %f51;
+div.rn.f32 %f53, %f3, %f52;
+div.rn.f32 %f54, %f53, %f52;
+div.rn.f32 %f55, %f3, %f54;
+div.rn.f32 %f56, %f3, %f55;
+div.rn.f32 %f57, %f56, %f55;
+div.rn.f32 %f58, %f3, %f57;
+div.rn.f32 %f59, %f3, %f58;
+div.rn.f32 %f60, %f59, %f58;
+div.rn.f32 %f61, %f3, %f60;
+div.rn.f32 %f62, %f3, %f61;
+div.rn.f32 %f63, %f62, %f61;
+div.rn.f32 %f64, %f3, %f63;
+div.rn.f32 %f65, %f3, %f64;
+div.rn.f32 %f66, %f65, %f64;
+div.rn.f32 %f67, %f3, %f66;
+div.rn.f32 %f68, %f3, %f67;
+div.rn.f32 %f69, %f68, %f67;
+div.rn.f32 %f70, %f3, %f69;
+div.rn.f32 %f71, %f3, %f70;
+div.rn.f32 %f72, %f71, %f70;
+div.rn.f32 %f73, %f3, %f72;
+div.rn.f32 %f74, %f3, %f73;
+div.rn.f32 %f75, %f74, %f73;
+div.rn.f32 %f76, %f3, %f75;
+div.rn.f32 %f77, %f3, %f76;
+div.rn.f32 %f78, %f77, %f76;
+div.rn.f32 %f79, %f3, %f78;
+div.rn.f32 %f80, %f3, %f79;
+div.rn.f32 %f81, %f80, %f79;
+div.rn.f32 %f82, %f3, %f81;
+div.rn.f32 %f83, %f3, %f82;
+div.rn.f32 %f84, %f83, %f82;
+div.rn.f32 %f85, %f3, %f84;
+div.rn.f32 %f86, %f3, %f85;
+div.rn.f32 %f87, %f86, %f85;
+div.rn.f32 %f88, %f3, %f87;
+div.rn.f32 %f89, %f3, %f88;
+div.rn.f32 %f90, %f89, %f88;
+div.rn.f32 %f91, %f3, %f90;
+div.rn.f32 %f92, %f3, %f91;
+div.rn.f32 %f93, %f92, %f91;
+div.rn.f32 %f94, %f3, %f93;
+div.rn.f32 %f95, %f3, %f94;
+div.rn.f32 %f96, %f95, %f94;
+div.rn.f32 %f97, %f3, %f96;
+div.rn.f32 %f98, %f3, %f97;
+div.rn.f32 %f99, %f98, %f97;
+div.rn.f32 %f100, %f3, %f99;
+div.rn.f32 %f101, %f3, %f100;
+div.rn.f32 %f102, %f101, %f100;
+div.rn.f32 %f103, %f3, %f102;
+div.rn.f32 %f104, %f3, %f103;
+div.rn.f32 %f105, %f104, %f103;
+div.rn.f32 %f106, %f3, %f105;
+div.rn.f32 %f107, %f3, %f106;
+div.rn.f32 %f108, %f107, %f106;
+div.rn.f32 %f109, %f3, %f108;
+div.rn.f32 %f110, %f3, %f109;
+div.rn.f32 %f111, %f110, %f109;
+div.rn.f32 %f112, %f3, %f111;
+div.rn.f32 %f113, %f3, %f112;
+div.rn.f32 %f114, %f113, %f112;
+div.rn.f32 %f115, %f3, %f114;
+div.rn.f32 %f116, %f3, %f115;
+div.rn.f32 %f117, %f116, %f115;
+div.rn.f32 %f118, %f3, %f117;
+div.rn.f32 %f119, %f3, %f118;
+div.rn.f32 %f120, %f119, %f118;
+div.rn.f32 %f121, %f3, %f120;
+div.rn.f32 %f122, %f3, %f121;
+div.rn.f32 %f123, %f122, %f121;
+div.rn.f32 %f124, %f3, %f123;
+div.rn.f32 %f125, %f3, %f124;
+div.rn.f32 %f126, %f125, %f124;
+div.rn.f32 %f127, %f3, %f126;
+div.rn.f32 %f128, %f3, %f127;
+div.rn.f32 %f129, %f128, %f127;
+div.rn.f32 %f130, %f3, %f129;
+div.rn.f32 %f131, %f3, %f130;
+div.rn.f32 %f132, %f131, %f130;
+div.rn.f32 %f133, %f3, %f132;
+div.rn.f32 %f134, %f3, %f133;
+div.rn.f32 %f135, %f134, %f133;
+div.rn.f32 %f136, %f3, %f135;
+div.rn.f32 %f137, %f3, %f136;
+div.rn.f32 %f138, %f137, %f136;
+div.rn.f32 %f139, %f3, %f138;
+div.rn.f32 %f140, %f3, %f139;
+div.rn.f32 %f141, %f140, %f139;
+div.rn.f32 %f142, %f3, %f141;
+div.rn.f32 %f143, %f3, %f142;
+div.rn.f32 %f144, %f143, %f142;
+div.rn.f32 %f145, %f3, %f144;
+div.rn.f32 %f146, %f3, %f145;
+div.rn.f32 %f147, %f146, %f145;
+div.rn.f32 %f148, %f3, %f147;
+div.rn.f32 %f149, %f3, %f148;
+div.rn.f32 %f150, %f149, %f148;
+div.rn.f32 %f151, %f3, %f150;
+div.rn.f32 %f152, %f3, %f151;
+div.rn.f32 %f153, %f152, %f151;
+div.rn.f32 %f154, %f3, %f153;
+div.rn.f32 %f155, %f3, %f154;
+div.rn.f32 %f156, %f155, %f154;
+div.rn.f32 %f157, %f3, %f156;
+div.rn.f32 %f158, %f3, %f157;
+div.rn.f32 %f159, %f158, %f157;
+div.rn.f32 %f160, %f3, %f159;
+div.rn.f32 %f161, %f3, %f160;
+div.rn.f32 %f162, %f161, %f160;
+div.rn.f32 %f163, %f3, %f162;
+div.rn.f32 %f164, %f3, %f163;
+div.rn.f32 %f165, %f164, %f163;
+div.rn.f32 %f166, %f3, %f165;
+div.rn.f32 %f167, %f3, %f166;
+div.rn.f32 %f168, %f167, %f166;
+div.rn.f32 %f169, %f3, %f168;
+div.rn.f32 %f170, %f3, %f169;
+div.rn.f32 %f171, %f170, %f169;
+div.rn.f32 %f172, %f3, %f171;
+div.rn.f32 %f173, %f3, %f172;
+div.rn.f32 %f174, %f173, %f172;
+div.rn.f32 %f175, %f3, %f174;
+div.rn.f32 %f176, %f3, %f175;
+div.rn.f32 %f177, %f176, %f175;
+div.rn.f32 %f178, %f3, %f177;
+div.rn.f32 %f179, %f3, %f178;
+div.rn.f32 %f180, %f179, %f178;
+div.rn.f32 %f181, %f3, %f180;
+div.rn.f32 %f182, %f3, %f181;
+div.rn.f32 %f183, %f182, %f181;
+div.rn.f32 %f184, %f3, %f183;
+div.rn.f32 %f185, %f3, %f184;
+div.rn.f32 %f186, %f185, %f184;
+div.rn.f32 %f187, %f3, %f186;
+div.rn.f32 %f188, %f3, %f187;
+div.rn.f32 %f189, %f188, %f187;
+div.rn.f32 %f190, %f3, %f189;
+div.rn.f32 %f191, %f3, %f190;
+div.rn.f32 %f192, %f191, %f190;
+div.rn.f32 %f193, %f3, %f192;
+div.rn.f32 %f194, %f3, %f193;
+div.rn.f32 %f195, %f194, %f193;
+div.rn.f32 %f196, %f3, %f195;
+div.rn.f32 %f197, %f3, %f196;
+div.rn.f32 %f198, %f197, %f196;
+div.rn.f32 %f199, %f3, %f198;
+div.rn.f32 %f200, %f3, %f199;
+div.rn.f32 %f201, %f200, %f199;
+div.rn.f32 %f202, %f3, %f201;
+div.rn.f32 %f203, %f3, %f202;
+div.rn.f32 %f204, %f203, %f202;
+div.rn.f32 %f205, %f3, %f204;
+div.rn.f32 %f206, %f3, %f205;
+div.rn.f32 %f207, %f206, %f205;
+div.rn.f32 %f208, %f3, %f207;
+div.rn.f32 %f209, %f3, %f208;
+div.rn.f32 %f210, %f209, %f208;
+div.rn.f32 %f211, %f3, %f210;
+div.rn.f32 %f212, %f3, %f211;
+div.rn.f32 %f213, %f212, %f211;
+div.rn.f32 %f214, %f3, %f213;
+div.rn.f32 %f215, %f3, %f214;
+div.rn.f32 %f216, %f215, %f214;
+div.rn.f32 %f217, %f3, %f216;
+div.rn.f32 %f218, %f3, %f217;
+div.rn.f32 %f219, %f218, %f217;
+div.rn.f32 %f220, %f3, %f219;
+div.rn.f32 %f221, %f3, %f220;
+div.rn.f32 %f222, %f221, %f220;
+div.rn.f32 %f223, %f3, %f222;
+div.rn.f32 %f224, %f3, %f223;
+div.rn.f32 %f225, %f224, %f223;
+div.rn.f32 %f226, %f3, %f225;
+div.rn.f32 %f227, %f3, %f226;
+div.rn.f32 %f228, %f227, %f226;
+div.rn.f32 %f229, %f3, %f228;
+div.rn.f32 %f230, %f3, %f229;
+div.rn.f32 %f231, %f230, %f229;
+div.rn.f32 %f232, %f3, %f231;
+div.rn.f32 %f233, %f3, %f232;
+div.rn.f32 %f234, %f233, %f232;
+div.rn.f32 %f235, %f3, %f234;
+div.rn.f32 %f236, %f3, %f235;
+div.rn.f32 %f237, %f236, %f235;
+div.rn.f32 %f238, %f3, %f237;
+div.rn.f32 %f239, %f3, %f238;
+div.rn.f32 %f240, %f239, %f238;
+div.rn.f32 %f241, %f3, %f240;
+div.rn.f32 %f242, %f3, %f241;
+div.rn.f32 %f243, %f242, %f241;
+div.rn.f32 %f244, %f3, %f243;
+div.rn.f32 %f245, %f3, %f244;
+div.rn.f32 %f246, %f245, %f244;
+div.rn.f32 %f247, %f3, %f246;
+div.rn.f32 %f248, %f3, %f247;
+div.rn.f32 %f249, %f248, %f247;
+div.rn.f32 %f250, %f3, %f249;
+div.rn.f32 %f251, %f3, %f250;
+div.rn.f32 %f252, %f251, %f250;
+div.rn.f32 %f253, %f3, %f252;
+div.rn.f32 %f254, %f3, %f253;
+div.rn.f32 %f255, %f254, %f253;
+div.rn.f32 %f256, %f3, %f255;
+div.rn.f32 %f257, %f3, %f256;
+div.rn.f32 %f258, %f257, %f256;
+div.rn.f32 %f259, %f3, %f258;
+div.rn.f32 %f260, %f3, %f259;
+div.rn.f32 %f261, %f260, %f259;
+div.rn.f32 %f262, %f3, %f261;
+div.rn.f32 %f263, %f3, %f262;
+div.rn.f32 %f264, %f263, %f262;
+div.rn.f32 %f265, %f3, %f264;
+div.rn.f32 %f266, %f3, %f265;
+div.rn.f32 %f267, %f266, %f265;
+div.rn.f32 %f268, %f3, %f267;
+div.rn.f32 %f269, %f3, %f268;
+div.rn.f32 %f270, %f269, %f268;
+div.rn.f32 %f271, %f3, %f270;
+div.rn.f32 %f272, %f3, %f271;
+div.rn.f32 %f273, %f272, %f271;
+div.rn.f32 %f274, %f3, %f273;
+div.rn.f32 %f275, %f3, %f274;
+div.rn.f32 %f276, %f275, %f274;
+div.rn.f32 %f277, %f3, %f276;
+div.rn.f32 %f278, %f3, %f277;
+div.rn.f32 %f279, %f278, %f277;
+div.rn.f32 %f280, %f3, %f279;
+div.rn.f32 %f281, %f3, %f280;
+div.rn.f32 %f282, %f281, %f280;
+div.rn.f32 %f283, %f3, %f282;
+div.rn.f32 %f284, %f3, %f283;
+div.rn.f32 %f285, %f284, %f283;
+div.rn.f32 %f286, %f3, %f285;
+div.rn.f32 %f287, %f3, %f286;
+div.rn.f32 %f288, %f287, %f286;
+div.rn.f32 %f289, %f3, %f288;
+div.rn.f32 %f290, %f3, %f289;
+div.rn.f32 %f291, %f290, %f289;
+div.rn.f32 %f292, %f3, %f291;
+div.rn.f32 %f293, %f3, %f292;
+div.rn.f32 %f294, %f293, %f292;
+div.rn.f32 %f295, %f3, %f294;
+div.rn.f32 %f296, %f3, %f295;
+div.rn.f32 %f297, %f296, %f295;
+div.rn.f32 %f298, %f3, %f297;
+div.rn.f32 %f299, %f3, %f298;
+div.rn.f32 %f300, %f299, %f298;
+div.rn.f32 %f301, %f3, %f300;
+div.rn.f32 %f302, %f3, %f301;
+div.rn.f32 %f303, %f302, %f301;
+div.rn.f32 %f304, %f3, %f303;
+div.rn.f32 %f305, %f3, %f304;
+div.rn.f32 %f306, %f305, %f304;
+div.rn.f32 %f307, %f3, %f306;
+div.rn.f32 %f308, %f3, %f307;
+div.rn.f32 %f309, %f308, %f307;
+div.rn.f32 %f310, %f3, %f309;
+div.rn.f32 %f311, %f3, %f310;
+div.rn.f32 %f312, %f311, %f310;
+div.rn.f32 %f313, %f3, %f312;
+div.rn.f32 %f314, %f3, %f313;
+div.rn.f32 %f315, %f314, %f313;
+div.rn.f32 %f322, %f3, %f315;
+add.s32 %r27, %r27, 100;
+setp.ne.s32	%p3, %r27, %r28;
+@%p3 bra BB0_3;
+
+ld.param.u32 %r21, [_Z12PowerKernal3PKfS0_Pfi_param_3];
+sub.s32 %r20, %r21, %r28;
+setp.eq.s32	%p4, %r20, 0;
+@%p4 bra BB0_7;
+bra.uni BB0_5;
+
+BB0_2:
+mov.u32 %r28, %r27;
+
+BB0_5:
+ld.param.u32 %r22, [_Z12PowerKernal3PKfS0_Pfi_param_3];
+sub.s32 %r29, %r28, %r22;
+
+BB0_6:
+.pragma "nounroll";
+div.rn.f32 %f316, %f3, %f322;
+div.rn.f32 %f317, %f316, %f322;
+div.rn.f32 %f322, %f3, %f317;
+add.s32 %r29, %r29, 1;
+setp.ne.s32	%p5, %r29, 0;
+@%p5 bra BB0_6;
+
+BB0_7:
+div.rn.f32 %f324, %f322, %f3;
+
+BB0_8:
+ld.param.u64 %rd12, [_Z12PowerKernal3PKfS0_Pfi_param_2];
+cvta.to.global.u64 %rd1, %rd12;
+bar.sync 0;
+mov.u32 %r26, %tid.x;
+mov.u32 %r25, %ntid.x;
+mov.u32 %r24, %ctaid.x;
+mad.lo.s32 %r23, %r24, %r25, %r26;
+mul.wide.s32 %rd13, %r23, 4;
+add.s64 %rd11, %rd1, %rd13;
+div.rn.f32 %f318, %f324, %f322;
+st.global.f32 [%rd11], %f318;
+ret;
+}
+
+

@@ -1,0 +1,414 @@
+
+Fatbin elf code:
+================
+arch = sm_80
+code version = [1,7]
+producer = <unknown>
+host = linux
+compile_size = 64bit
+
+Fatbin ptx code:
+================
+arch = sm_80
+code version = [7,1]
+producer = <unknown>
+host = linux
+compile_size = 64bit
+compressed
+
+
+
+
+
+
+
+
+.version 7.1
+.target sm_80
+.address_size 64
+
+
+
+.visible .entry _Z12PowerKernal2PKfS0_Pfiji(
+.param .u64 _Z12PowerKernal2PKfS0_Pfiji_param_0,
+.param .u64 _Z12PowerKernal2PKfS0_Pfiji_param_1,
+.param .u64 _Z12PowerKernal2PKfS0_Pfiji_param_2,
+.param .u32 _Z12PowerKernal2PKfS0_Pfiji_param_3,
+.param .u32 _Z12PowerKernal2PKfS0_Pfiji_param_4,
+.param .u32 _Z12PowerKernal2PKfS0_Pfiji_param_5
+)
+{
+.reg .pred %p<7>;
+.reg .f32 %f<3>;
+.reg .b32 %r<30>;
+.reg .b64 %rd<9>;
+
+
+ld.param.u64 %rd3, [_Z12PowerKernal2PKfS0_Pfiji_param_0];
+ld.param.u64 %rd2, [_Z12PowerKernal2PKfS0_Pfiji_param_2];
+ld.param.u32 %r12, [_Z12PowerKernal2PKfS0_Pfiji_param_4];
+ld.param.u32 %r13, [_Z12PowerKernal2PKfS0_Pfiji_param_5];
+mov.u32 %r14, %ctaid.x;
+mov.u32 %r15, %ntid.x;
+mov.u32 %r16, %tid.x;
+mad.lo.s32 %r1, %r14, %r15, %r16;
+cvta.to.global.u64 %rd4, %rd3;
+mul.wide.s32 %rd5, %r1, 4;
+add.s64 %rd6, %rd4, %rd5;
+ld.global.f32 %f1, [%rd6];
+cvt.rzi.u32.f32	%r2, %f1;
+shr.s32 %r17, %r1, 31;
+shr.u32 %r18, %r17, 27;
+add.s32 %r19, %r1, %r18;
+and.b32 %r20, %r19, -32;
+sub.s32 %r21, %r1, %r20;
+setp.ge.s32	%p1, %r21, %r13;
+@%p1 bra BB0_8;
+
+setp.eq.s32	%p2, %r12, 0;
+@%p2 bra BB0_8;
+
+mul.hi.s32 %r23, %r12, 1374389535;
+shr.u32 %r24, %r23, 31;
+shr.s32 %r25, %r23, 5;
+add.s32 %r26, %r25, %r24;
+mul.lo.s32 %r4, %r26, 100;
+sub.s32 %r3, %r12, %r4;
+mov.u32 %r28, 0;
+setp.lt.s32	%p3, %r4, 1;
+@%p3 bra BB0_6;
+
+sub.s32 %r27, %r3, %r12;
+
+BB0_4:
+.pragma "nounroll";
+
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	
+	nanosleep.u32 1000;
+
+	add.s32 %r27, %r27, 100;
+setp.ne.s32	%p4, %r27, 0;
+@%p4 bra BB0_4;
+
+setp.eq.s32	%p5, %r3, 0;
+mov.u32 %r28, %r4;
+@%p5 bra BB0_8;
+
+BB0_6:
+sub.s32 %r29, %r28, %r12;
+
+BB0_7:
+.pragma "nounroll";
+
+	nanosleep.u32 1000;
+
+	add.s32 %r29, %r29, 1;
+setp.ne.s32	%p6, %r29, 0;
+@%p6 bra BB0_7;
+
+BB0_8:
+cvta.to.global.u64 %rd1, %rd2;
+bar.sync 0;
+add.s64 %rd8, %rd1, %rd5;
+cvt.rn.f32.u32	%f2, %r2;
+st.global.f32 [%rd8], %f2;
+ret;
+}
+
+

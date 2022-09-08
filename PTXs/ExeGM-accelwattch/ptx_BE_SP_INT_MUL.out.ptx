@@ -1,0 +1,521 @@
+
+Fatbin elf code:
+================
+arch = sm_80
+code version = [1,7]
+producer = <unknown>
+host = linux
+compile_size = 64bit
+
+Fatbin ptx code:
+================
+arch = sm_80
+code version = [7,1]
+producer = <unknown>
+host = linux
+compile_size = 64bit
+compressed
+
+
+
+
+
+
+
+
+.version 7.1
+.target sm_80
+.address_size 64
+
+
+
+.visible .entry _Z12PowerKernal3PKmS0_Pmi(
+.param .u64 _Z12PowerKernal3PKmS0_Pmi_param_0,
+.param .u64 _Z12PowerKernal3PKmS0_Pmi_param_1,
+.param .u64 _Z12PowerKernal3PKmS0_Pmi_param_2,
+.param .u32 _Z12PowerKernal3PKmS0_Pmi_param_3
+)
+{
+.reg .pred %p<6>;
+.reg .b32 %r<30>;
+.reg .b64 %rd<441>;
+
+
+ld.param.u64 %rd21, [_Z12PowerKernal3PKmS0_Pmi_param_0];
+ld.param.u64 %rd22, [_Z12PowerKernal3PKmS0_Pmi_param_1];
+ld.param.u32 %r10, [_Z12PowerKernal3PKmS0_Pmi_param_3];
+mov.u32 %r11, %ctaid.x;
+mov.u32 %r12, %ntid.x;
+mov.u32 %r13, %tid.x;
+mad.lo.s32 %r1, %r11, %r12, %r13;
+cvta.to.global.u64 %rd23, %rd21;
+mul.wide.s32 %rd24, %r1, 8;
+add.s64 %rd25, %rd23, %rd24;
+ld.global.u64 %rd1, [%rd25];
+cvta.to.global.u64 %rd26, %rd22;
+add.s64 %rd27, %rd26, %rd24;
+ld.global.u64 %rd2, [%rd27];
+setp.eq.s32	%p1, %r10, 0;
+@%p1 bra BB0_8;
+
+mul.lo.s64 %rd3, %rd2, %rd1;
+mul.hi.s32 %r16, %r10, 1374389535;
+shr.u32 %r17, %r16, 31;
+shr.s32 %r18, %r16, 5;
+add.s32 %r19, %r18, %r17;
+mul.lo.s32 %r28, %r19, 100;
+mov.u64 %rd439, 999999;
+mov.u32 %r27, 0;
+setp.lt.s32	%p2, %r28, 1;
+@%p2 bra BB0_2;
+
+BB0_3:
+.pragma "nounroll";
+mul.lo.s64 %rd30, %rd3, %rd439;
+mul.lo.s64 %rd31, %rd30, %rd2;
+mul.lo.s64 %rd32, %rd439, %rd1;
+mul.lo.s64 %rd33, %rd32, %rd31;
+mul.lo.s64 %rd34, %rd3, %rd33;
+mul.lo.s64 %rd35, %rd34, %rd2;
+mul.lo.s64 %rd36, %rd33, %rd1;
+mul.lo.s64 %rd37, %rd36, %rd35;
+mul.lo.s64 %rd38, %rd3, %rd37;
+mul.lo.s64 %rd39, %rd38, %rd2;
+mul.lo.s64 %rd40, %rd37, %rd1;
+mul.lo.s64 %rd41, %rd40, %rd39;
+mul.lo.s64 %rd42, %rd3, %rd41;
+mul.lo.s64 %rd43, %rd42, %rd2;
+mul.lo.s64 %rd44, %rd41, %rd1;
+mul.lo.s64 %rd45, %rd44, %rd43;
+mul.lo.s64 %rd46, %rd3, %rd45;
+mul.lo.s64 %rd47, %rd46, %rd2;
+mul.lo.s64 %rd48, %rd45, %rd1;
+mul.lo.s64 %rd49, %rd48, %rd47;
+mul.lo.s64 %rd50, %rd3, %rd49;
+mul.lo.s64 %rd51, %rd50, %rd2;
+mul.lo.s64 %rd52, %rd49, %rd1;
+mul.lo.s64 %rd53, %rd52, %rd51;
+mul.lo.s64 %rd54, %rd3, %rd53;
+mul.lo.s64 %rd55, %rd54, %rd2;
+mul.lo.s64 %rd56, %rd53, %rd1;
+mul.lo.s64 %rd57, %rd56, %rd55;
+mul.lo.s64 %rd58, %rd3, %rd57;
+mul.lo.s64 %rd59, %rd58, %rd2;
+mul.lo.s64 %rd60, %rd57, %rd1;
+mul.lo.s64 %rd61, %rd60, %rd59;
+mul.lo.s64 %rd62, %rd3, %rd61;
+mul.lo.s64 %rd63, %rd62, %rd2;
+mul.lo.s64 %rd64, %rd61, %rd1;
+mul.lo.s64 %rd65, %rd64, %rd63;
+mul.lo.s64 %rd66, %rd3, %rd65;
+mul.lo.s64 %rd67, %rd66, %rd2;
+mul.lo.s64 %rd68, %rd65, %rd1;
+mul.lo.s64 %rd69, %rd68, %rd67;
+mul.lo.s64 %rd70, %rd3, %rd69;
+mul.lo.s64 %rd71, %rd70, %rd2;
+mul.lo.s64 %rd72, %rd69, %rd1;
+mul.lo.s64 %rd73, %rd72, %rd71;
+mul.lo.s64 %rd74, %rd3, %rd73;
+mul.lo.s64 %rd75, %rd74, %rd2;
+mul.lo.s64 %rd76, %rd73, %rd1;
+mul.lo.s64 %rd77, %rd76, %rd75;
+mul.lo.s64 %rd78, %rd3, %rd77;
+mul.lo.s64 %rd79, %rd78, %rd2;
+mul.lo.s64 %rd80, %rd77, %rd1;
+mul.lo.s64 %rd81, %rd80, %rd79;
+mul.lo.s64 %rd82, %rd3, %rd81;
+mul.lo.s64 %rd83, %rd82, %rd2;
+mul.lo.s64 %rd84, %rd81, %rd1;
+mul.lo.s64 %rd85, %rd84, %rd83;
+mul.lo.s64 %rd86, %rd3, %rd85;
+mul.lo.s64 %rd87, %rd86, %rd2;
+mul.lo.s64 %rd88, %rd85, %rd1;
+mul.lo.s64 %rd89, %rd88, %rd87;
+mul.lo.s64 %rd90, %rd3, %rd89;
+mul.lo.s64 %rd91, %rd90, %rd2;
+mul.lo.s64 %rd92, %rd89, %rd1;
+mul.lo.s64 %rd93, %rd92, %rd91;
+mul.lo.s64 %rd94, %rd3, %rd93;
+mul.lo.s64 %rd95, %rd94, %rd2;
+mul.lo.s64 %rd96, %rd93, %rd1;
+mul.lo.s64 %rd97, %rd96, %rd95;
+mul.lo.s64 %rd98, %rd3, %rd97;
+mul.lo.s64 %rd99, %rd98, %rd2;
+mul.lo.s64 %rd100, %rd97, %rd1;
+mul.lo.s64 %rd101, %rd100, %rd99;
+mul.lo.s64 %rd102, %rd3, %rd101;
+mul.lo.s64 %rd103, %rd102, %rd2;
+mul.lo.s64 %rd104, %rd101, %rd1;
+mul.lo.s64 %rd105, %rd104, %rd103;
+mul.lo.s64 %rd106, %rd3, %rd105;
+mul.lo.s64 %rd107, %rd106, %rd2;
+mul.lo.s64 %rd108, %rd105, %rd1;
+mul.lo.s64 %rd109, %rd108, %rd107;
+mul.lo.s64 %rd110, %rd3, %rd109;
+mul.lo.s64 %rd111, %rd110, %rd2;
+mul.lo.s64 %rd112, %rd109, %rd1;
+mul.lo.s64 %rd113, %rd112, %rd111;
+mul.lo.s64 %rd114, %rd3, %rd113;
+mul.lo.s64 %rd115, %rd114, %rd2;
+mul.lo.s64 %rd116, %rd113, %rd1;
+mul.lo.s64 %rd117, %rd116, %rd115;
+mul.lo.s64 %rd118, %rd3, %rd117;
+mul.lo.s64 %rd119, %rd118, %rd2;
+mul.lo.s64 %rd120, %rd117, %rd1;
+mul.lo.s64 %rd121, %rd120, %rd119;
+mul.lo.s64 %rd122, %rd3, %rd121;
+mul.lo.s64 %rd123, %rd122, %rd2;
+mul.lo.s64 %rd124, %rd121, %rd1;
+mul.lo.s64 %rd125, %rd124, %rd123;
+mul.lo.s64 %rd126, %rd3, %rd125;
+mul.lo.s64 %rd127, %rd126, %rd2;
+mul.lo.s64 %rd128, %rd125, %rd1;
+mul.lo.s64 %rd129, %rd128, %rd127;
+mul.lo.s64 %rd130, %rd3, %rd129;
+mul.lo.s64 %rd131, %rd130, %rd2;
+mul.lo.s64 %rd132, %rd129, %rd1;
+mul.lo.s64 %rd133, %rd132, %rd131;
+mul.lo.s64 %rd134, %rd3, %rd133;
+mul.lo.s64 %rd135, %rd134, %rd2;
+mul.lo.s64 %rd136, %rd133, %rd1;
+mul.lo.s64 %rd137, %rd136, %rd135;
+mul.lo.s64 %rd138, %rd3, %rd137;
+mul.lo.s64 %rd139, %rd138, %rd2;
+mul.lo.s64 %rd140, %rd137, %rd1;
+mul.lo.s64 %rd141, %rd140, %rd139;
+mul.lo.s64 %rd142, %rd3, %rd141;
+mul.lo.s64 %rd143, %rd142, %rd2;
+mul.lo.s64 %rd144, %rd141, %rd1;
+mul.lo.s64 %rd145, %rd144, %rd143;
+mul.lo.s64 %rd146, %rd3, %rd145;
+mul.lo.s64 %rd147, %rd146, %rd2;
+mul.lo.s64 %rd148, %rd145, %rd1;
+mul.lo.s64 %rd149, %rd148, %rd147;
+mul.lo.s64 %rd150, %rd3, %rd149;
+mul.lo.s64 %rd151, %rd150, %rd2;
+mul.lo.s64 %rd152, %rd149, %rd1;
+mul.lo.s64 %rd153, %rd152, %rd151;
+mul.lo.s64 %rd154, %rd3, %rd153;
+mul.lo.s64 %rd155, %rd154, %rd2;
+mul.lo.s64 %rd156, %rd153, %rd1;
+mul.lo.s64 %rd157, %rd156, %rd155;
+mul.lo.s64 %rd158, %rd3, %rd157;
+mul.lo.s64 %rd159, %rd158, %rd2;
+mul.lo.s64 %rd160, %rd157, %rd1;
+mul.lo.s64 %rd161, %rd160, %rd159;
+mul.lo.s64 %rd162, %rd3, %rd161;
+mul.lo.s64 %rd163, %rd162, %rd2;
+mul.lo.s64 %rd164, %rd161, %rd1;
+mul.lo.s64 %rd165, %rd164, %rd163;
+mul.lo.s64 %rd166, %rd3, %rd165;
+mul.lo.s64 %rd167, %rd166, %rd2;
+mul.lo.s64 %rd168, %rd165, %rd1;
+mul.lo.s64 %rd169, %rd168, %rd167;
+mul.lo.s64 %rd170, %rd3, %rd169;
+mul.lo.s64 %rd171, %rd170, %rd2;
+mul.lo.s64 %rd172, %rd169, %rd1;
+mul.lo.s64 %rd173, %rd172, %rd171;
+mul.lo.s64 %rd174, %rd3, %rd173;
+mul.lo.s64 %rd175, %rd174, %rd2;
+mul.lo.s64 %rd176, %rd173, %rd1;
+mul.lo.s64 %rd177, %rd176, %rd175;
+mul.lo.s64 %rd178, %rd3, %rd177;
+mul.lo.s64 %rd179, %rd178, %rd2;
+mul.lo.s64 %rd180, %rd177, %rd1;
+mul.lo.s64 %rd181, %rd180, %rd179;
+mul.lo.s64 %rd182, %rd3, %rd181;
+mul.lo.s64 %rd183, %rd182, %rd2;
+mul.lo.s64 %rd184, %rd181, %rd1;
+mul.lo.s64 %rd185, %rd184, %rd183;
+mul.lo.s64 %rd186, %rd3, %rd185;
+mul.lo.s64 %rd187, %rd186, %rd2;
+mul.lo.s64 %rd188, %rd185, %rd1;
+mul.lo.s64 %rd189, %rd188, %rd187;
+mul.lo.s64 %rd190, %rd3, %rd189;
+mul.lo.s64 %rd191, %rd190, %rd2;
+mul.lo.s64 %rd192, %rd189, %rd1;
+mul.lo.s64 %rd193, %rd192, %rd191;
+mul.lo.s64 %rd194, %rd3, %rd193;
+mul.lo.s64 %rd195, %rd194, %rd2;
+mul.lo.s64 %rd196, %rd193, %rd1;
+mul.lo.s64 %rd197, %rd196, %rd195;
+mul.lo.s64 %rd198, %rd3, %rd197;
+mul.lo.s64 %rd199, %rd198, %rd2;
+mul.lo.s64 %rd200, %rd197, %rd1;
+mul.lo.s64 %rd201, %rd200, %rd199;
+mul.lo.s64 %rd202, %rd3, %rd201;
+mul.lo.s64 %rd203, %rd202, %rd2;
+mul.lo.s64 %rd204, %rd201, %rd1;
+mul.lo.s64 %rd205, %rd204, %rd203;
+mul.lo.s64 %rd206, %rd3, %rd205;
+mul.lo.s64 %rd207, %rd206, %rd2;
+mul.lo.s64 %rd208, %rd205, %rd1;
+mul.lo.s64 %rd209, %rd208, %rd207;
+mul.lo.s64 %rd210, %rd3, %rd209;
+mul.lo.s64 %rd211, %rd210, %rd2;
+mul.lo.s64 %rd212, %rd209, %rd1;
+mul.lo.s64 %rd213, %rd212, %rd211;
+mul.lo.s64 %rd214, %rd3, %rd213;
+mul.lo.s64 %rd215, %rd214, %rd2;
+mul.lo.s64 %rd216, %rd213, %rd1;
+mul.lo.s64 %rd217, %rd216, %rd215;
+mul.lo.s64 %rd218, %rd3, %rd217;
+mul.lo.s64 %rd219, %rd218, %rd2;
+mul.lo.s64 %rd220, %rd217, %rd1;
+mul.lo.s64 %rd221, %rd220, %rd219;
+mul.lo.s64 %rd222, %rd3, %rd221;
+mul.lo.s64 %rd223, %rd222, %rd2;
+mul.lo.s64 %rd224, %rd221, %rd1;
+mul.lo.s64 %rd225, %rd224, %rd223;
+mul.lo.s64 %rd226, %rd3, %rd225;
+mul.lo.s64 %rd227, %rd226, %rd2;
+mul.lo.s64 %rd228, %rd225, %rd1;
+mul.lo.s64 %rd229, %rd228, %rd227;
+mul.lo.s64 %rd230, %rd3, %rd229;
+mul.lo.s64 %rd231, %rd230, %rd2;
+mul.lo.s64 %rd232, %rd229, %rd1;
+mul.lo.s64 %rd233, %rd232, %rd231;
+mul.lo.s64 %rd234, %rd3, %rd233;
+mul.lo.s64 %rd235, %rd234, %rd2;
+mul.lo.s64 %rd236, %rd233, %rd1;
+mul.lo.s64 %rd237, %rd236, %rd235;
+mul.lo.s64 %rd238, %rd3, %rd237;
+mul.lo.s64 %rd239, %rd238, %rd2;
+mul.lo.s64 %rd240, %rd237, %rd1;
+mul.lo.s64 %rd241, %rd240, %rd239;
+mul.lo.s64 %rd242, %rd3, %rd241;
+mul.lo.s64 %rd243, %rd242, %rd2;
+mul.lo.s64 %rd244, %rd241, %rd1;
+mul.lo.s64 %rd245, %rd244, %rd243;
+mul.lo.s64 %rd246, %rd3, %rd245;
+mul.lo.s64 %rd247, %rd246, %rd2;
+mul.lo.s64 %rd248, %rd245, %rd1;
+mul.lo.s64 %rd249, %rd248, %rd247;
+mul.lo.s64 %rd250, %rd3, %rd249;
+mul.lo.s64 %rd251, %rd250, %rd2;
+mul.lo.s64 %rd252, %rd249, %rd1;
+mul.lo.s64 %rd253, %rd252, %rd251;
+mul.lo.s64 %rd254, %rd3, %rd253;
+mul.lo.s64 %rd255, %rd254, %rd2;
+mul.lo.s64 %rd256, %rd253, %rd1;
+mul.lo.s64 %rd257, %rd256, %rd255;
+mul.lo.s64 %rd258, %rd3, %rd257;
+mul.lo.s64 %rd259, %rd258, %rd2;
+mul.lo.s64 %rd260, %rd257, %rd1;
+mul.lo.s64 %rd261, %rd260, %rd259;
+mul.lo.s64 %rd262, %rd3, %rd261;
+mul.lo.s64 %rd263, %rd262, %rd2;
+mul.lo.s64 %rd264, %rd261, %rd1;
+mul.lo.s64 %rd265, %rd264, %rd263;
+mul.lo.s64 %rd266, %rd3, %rd265;
+mul.lo.s64 %rd267, %rd266, %rd2;
+mul.lo.s64 %rd268, %rd265, %rd1;
+mul.lo.s64 %rd269, %rd268, %rd267;
+mul.lo.s64 %rd270, %rd3, %rd269;
+mul.lo.s64 %rd271, %rd270, %rd2;
+mul.lo.s64 %rd272, %rd269, %rd1;
+mul.lo.s64 %rd273, %rd272, %rd271;
+mul.lo.s64 %rd274, %rd3, %rd273;
+mul.lo.s64 %rd275, %rd274, %rd2;
+mul.lo.s64 %rd276, %rd273, %rd1;
+mul.lo.s64 %rd277, %rd276, %rd275;
+mul.lo.s64 %rd278, %rd3, %rd277;
+mul.lo.s64 %rd279, %rd278, %rd2;
+mul.lo.s64 %rd280, %rd277, %rd1;
+mul.lo.s64 %rd281, %rd280, %rd279;
+mul.lo.s64 %rd282, %rd3, %rd281;
+mul.lo.s64 %rd283, %rd282, %rd2;
+mul.lo.s64 %rd284, %rd281, %rd1;
+mul.lo.s64 %rd285, %rd284, %rd283;
+mul.lo.s64 %rd286, %rd3, %rd285;
+mul.lo.s64 %rd287, %rd286, %rd2;
+mul.lo.s64 %rd288, %rd285, %rd1;
+mul.lo.s64 %rd289, %rd288, %rd287;
+mul.lo.s64 %rd290, %rd3, %rd289;
+mul.lo.s64 %rd291, %rd290, %rd2;
+mul.lo.s64 %rd292, %rd289, %rd1;
+mul.lo.s64 %rd293, %rd292, %rd291;
+mul.lo.s64 %rd294, %rd3, %rd293;
+mul.lo.s64 %rd295, %rd294, %rd2;
+mul.lo.s64 %rd296, %rd293, %rd1;
+mul.lo.s64 %rd297, %rd296, %rd295;
+mul.lo.s64 %rd298, %rd3, %rd297;
+mul.lo.s64 %rd299, %rd298, %rd2;
+mul.lo.s64 %rd300, %rd297, %rd1;
+mul.lo.s64 %rd301, %rd300, %rd299;
+mul.lo.s64 %rd302, %rd3, %rd301;
+mul.lo.s64 %rd303, %rd302, %rd2;
+mul.lo.s64 %rd304, %rd301, %rd1;
+mul.lo.s64 %rd305, %rd304, %rd303;
+mul.lo.s64 %rd306, %rd3, %rd305;
+mul.lo.s64 %rd307, %rd306, %rd2;
+mul.lo.s64 %rd308, %rd305, %rd1;
+mul.lo.s64 %rd309, %rd308, %rd307;
+mul.lo.s64 %rd310, %rd3, %rd309;
+mul.lo.s64 %rd311, %rd310, %rd2;
+mul.lo.s64 %rd312, %rd309, %rd1;
+mul.lo.s64 %rd313, %rd312, %rd311;
+mul.lo.s64 %rd314, %rd3, %rd313;
+mul.lo.s64 %rd315, %rd314, %rd2;
+mul.lo.s64 %rd316, %rd313, %rd1;
+mul.lo.s64 %rd317, %rd316, %rd315;
+mul.lo.s64 %rd318, %rd3, %rd317;
+mul.lo.s64 %rd319, %rd318, %rd2;
+mul.lo.s64 %rd320, %rd317, %rd1;
+mul.lo.s64 %rd321, %rd320, %rd319;
+mul.lo.s64 %rd322, %rd3, %rd321;
+mul.lo.s64 %rd323, %rd322, %rd2;
+mul.lo.s64 %rd324, %rd321, %rd1;
+mul.lo.s64 %rd325, %rd324, %rd323;
+mul.lo.s64 %rd326, %rd3, %rd325;
+mul.lo.s64 %rd327, %rd326, %rd2;
+mul.lo.s64 %rd328, %rd325, %rd1;
+mul.lo.s64 %rd329, %rd328, %rd327;
+mul.lo.s64 %rd330, %rd3, %rd329;
+mul.lo.s64 %rd331, %rd330, %rd2;
+mul.lo.s64 %rd332, %rd329, %rd1;
+mul.lo.s64 %rd333, %rd332, %rd331;
+mul.lo.s64 %rd334, %rd3, %rd333;
+mul.lo.s64 %rd335, %rd334, %rd2;
+mul.lo.s64 %rd336, %rd333, %rd1;
+mul.lo.s64 %rd337, %rd336, %rd335;
+mul.lo.s64 %rd338, %rd3, %rd337;
+mul.lo.s64 %rd339, %rd338, %rd2;
+mul.lo.s64 %rd340, %rd337, %rd1;
+mul.lo.s64 %rd341, %rd340, %rd339;
+mul.lo.s64 %rd342, %rd3, %rd341;
+mul.lo.s64 %rd343, %rd342, %rd2;
+mul.lo.s64 %rd344, %rd341, %rd1;
+mul.lo.s64 %rd345, %rd344, %rd343;
+mul.lo.s64 %rd346, %rd3, %rd345;
+mul.lo.s64 %rd347, %rd346, %rd2;
+mul.lo.s64 %rd348, %rd345, %rd1;
+mul.lo.s64 %rd349, %rd348, %rd347;
+mul.lo.s64 %rd350, %rd3, %rd349;
+mul.lo.s64 %rd351, %rd350, %rd2;
+mul.lo.s64 %rd352, %rd349, %rd1;
+mul.lo.s64 %rd353, %rd352, %rd351;
+mul.lo.s64 %rd354, %rd3, %rd353;
+mul.lo.s64 %rd355, %rd354, %rd2;
+mul.lo.s64 %rd356, %rd353, %rd1;
+mul.lo.s64 %rd357, %rd356, %rd355;
+mul.lo.s64 %rd358, %rd3, %rd357;
+mul.lo.s64 %rd359, %rd358, %rd2;
+mul.lo.s64 %rd360, %rd357, %rd1;
+mul.lo.s64 %rd361, %rd360, %rd359;
+mul.lo.s64 %rd362, %rd3, %rd361;
+mul.lo.s64 %rd363, %rd362, %rd2;
+mul.lo.s64 %rd364, %rd361, %rd1;
+mul.lo.s64 %rd365, %rd364, %rd363;
+mul.lo.s64 %rd366, %rd3, %rd365;
+mul.lo.s64 %rd367, %rd366, %rd2;
+mul.lo.s64 %rd368, %rd365, %rd1;
+mul.lo.s64 %rd369, %rd368, %rd367;
+mul.lo.s64 %rd370, %rd3, %rd369;
+mul.lo.s64 %rd371, %rd370, %rd2;
+mul.lo.s64 %rd372, %rd369, %rd1;
+mul.lo.s64 %rd373, %rd372, %rd371;
+mul.lo.s64 %rd374, %rd3, %rd373;
+mul.lo.s64 %rd375, %rd374, %rd2;
+mul.lo.s64 %rd376, %rd373, %rd1;
+mul.lo.s64 %rd377, %rd376, %rd375;
+mul.lo.s64 %rd378, %rd3, %rd377;
+mul.lo.s64 %rd379, %rd378, %rd2;
+mul.lo.s64 %rd380, %rd377, %rd1;
+mul.lo.s64 %rd381, %rd380, %rd379;
+mul.lo.s64 %rd382, %rd3, %rd381;
+mul.lo.s64 %rd383, %rd382, %rd2;
+mul.lo.s64 %rd384, %rd381, %rd1;
+mul.lo.s64 %rd385, %rd384, %rd383;
+mul.lo.s64 %rd386, %rd3, %rd385;
+mul.lo.s64 %rd387, %rd386, %rd2;
+mul.lo.s64 %rd388, %rd385, %rd1;
+mul.lo.s64 %rd389, %rd388, %rd387;
+mul.lo.s64 %rd390, %rd3, %rd389;
+mul.lo.s64 %rd391, %rd390, %rd2;
+mul.lo.s64 %rd392, %rd389, %rd1;
+mul.lo.s64 %rd393, %rd392, %rd391;
+mul.lo.s64 %rd394, %rd3, %rd393;
+mul.lo.s64 %rd395, %rd394, %rd2;
+mul.lo.s64 %rd396, %rd393, %rd1;
+mul.lo.s64 %rd397, %rd396, %rd395;
+mul.lo.s64 %rd398, %rd3, %rd397;
+mul.lo.s64 %rd399, %rd398, %rd2;
+mul.lo.s64 %rd400, %rd397, %rd1;
+mul.lo.s64 %rd401, %rd400, %rd399;
+mul.lo.s64 %rd402, %rd3, %rd401;
+mul.lo.s64 %rd403, %rd402, %rd2;
+mul.lo.s64 %rd404, %rd401, %rd1;
+mul.lo.s64 %rd405, %rd404, %rd403;
+mul.lo.s64 %rd406, %rd3, %rd405;
+mul.lo.s64 %rd407, %rd406, %rd2;
+mul.lo.s64 %rd408, %rd405, %rd1;
+mul.lo.s64 %rd409, %rd408, %rd407;
+mul.lo.s64 %rd410, %rd3, %rd409;
+mul.lo.s64 %rd411, %rd410, %rd2;
+mul.lo.s64 %rd412, %rd409, %rd1;
+mul.lo.s64 %rd413, %rd412, %rd411;
+mul.lo.s64 %rd414, %rd3, %rd413;
+mul.lo.s64 %rd415, %rd414, %rd2;
+mul.lo.s64 %rd416, %rd413, %rd1;
+mul.lo.s64 %rd417, %rd416, %rd415;
+mul.lo.s64 %rd418, %rd3, %rd417;
+mul.lo.s64 %rd419, %rd418, %rd2;
+mul.lo.s64 %rd420, %rd417, %rd1;
+mul.lo.s64 %rd421, %rd420, %rd419;
+mul.lo.s64 %rd422, %rd3, %rd421;
+mul.lo.s64 %rd423, %rd422, %rd2;
+mul.lo.s64 %rd424, %rd421, %rd1;
+mul.lo.s64 %rd425, %rd424, %rd423;
+mul.lo.s64 %rd437, %rd3, %rd425;
+mul.lo.s64 %rd6, %rd437, %rd2;
+mul.lo.s64 %rd426, %rd425, %rd1;
+mul.lo.s64 %rd439, %rd426, %rd6;
+add.s32 %r27, %r27, 100;
+setp.ne.s32	%p3, %r27, %r28;
+@%p3 bra BB0_3;
+
+mul.lo.s64 %rd438, %rd437, %rd2;
+ld.param.u32 %r21, [_Z12PowerKernal3PKmS0_Pmi_param_3];
+sub.s32 %r20, %r21, %r28;
+setp.eq.s32	%p4, %r20, 0;
+@%p4 bra BB0_7;
+bra.uni BB0_5;
+
+BB0_2:
+mov.u32 %r28, %r27;
+
+BB0_5:
+ld.param.u32 %r22, [_Z12PowerKernal3PKmS0_Pmi_param_3];
+sub.s32 %r29, %r28, %r22;
+
+BB0_6:
+.pragma "nounroll";
+mul.lo.s64 %rd437, %rd3, %rd439;
+mul.lo.s64 %rd438, %rd437, %rd2;
+mul.lo.s64 %rd427, %rd439, %rd1;
+mul.lo.s64 %rd439, %rd427, %rd438;
+add.s32 %r29, %r29, 1;
+setp.ne.s32	%p5, %r29, 0;
+@%p5 bra BB0_6;
+
+BB0_7:
+mul.lo.s64 %rd428, %rd438, %rd437;
+mul.lo.s64 %rd440, %rd428, %rd439;
+
+BB0_8:
+ld.param.u64 %rd431, [_Z12PowerKernal3PKmS0_Pmi_param_2];
+cvta.to.global.u64 %rd18, %rd431;
+bar.sync 0;
+mov.u32 %r26, %tid.x;
+mov.u32 %r25, %ntid.x;
+mov.u32 %r24, %ctaid.x;
+mad.lo.s32 %r23, %r24, %r25, %r26;
+mul.wide.s32 %rd432, %r23, 8;
+add.s64 %rd430, %rd18, %rd432;
+st.global.u64 [%rd430], %rd440;
+bar.sync 0;
+ret;
+}
+
+

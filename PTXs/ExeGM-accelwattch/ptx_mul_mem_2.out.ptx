@@ -1,0 +1,227 @@
+
+Fatbin elf code:
+================
+arch = sm_80
+code version = [1,7]
+producer = <unknown>
+host = linux
+compile_size = 64bit
+
+Fatbin ptx code:
+================
+arch = sm_80
+code version = [7,1]
+producer = <unknown>
+host = linux
+compile_size = 64bit
+compressed
+
+
+
+
+
+
+
+
+.version 7.1
+.target sm_80
+.address_size 64
+
+
+
+.visible .entry _Z12PowerKernal1PjS_ii(
+.param .u64 _Z12PowerKernal1PjS_ii_param_0,
+.param .u64 _Z12PowerKernal1PjS_ii_param_1,
+.param .u32 _Z12PowerKernal1PjS_ii_param_2,
+.param .u32 _Z12PowerKernal1PjS_ii_param_3
+)
+{
+.reg .pred %p<17>;
+.reg .b32 %r<104>;
+.reg .b64 %rd<8>;
+
+
+ld.param.u64 %rd3, [_Z12PowerKernal1PjS_ii_param_0];
+ld.param.u64 %rd4, [_Z12PowerKernal1PjS_ii_param_1];
+ld.param.u32 %r48, [_Z12PowerKernal1PjS_ii_param_2];
+ld.param.u32 %r47, [_Z12PowerKernal1PjS_ii_param_3];
+mov.u32 %r49, %ntid.x;
+mov.u32 %r50, %ctaid.x;
+mov.u32 %r51, %tid.x;
+mad.lo.s32 %r1, %r50, %r49, %r51;
+setp.ge.s32	%p1, %r1, %r48;
+setp.eq.s32	%p2, %r47, 0;
+or.pred %p3, %p1, %p2;
+@%p3 bra BB0_27;
+
+cvta.to.global.u64 %rd5, %rd3;
+mul.wide.s32 %rd6, %r1, 4;
+add.s64 %rd1, %rd5, %rd6;
+cvta.to.global.u64 %rd7, %rd4;
+add.s64 %rd2, %rd7, %rd6;
+add.s32 %r2, %r47, 3;
+shr.s32 %r53, %r47, 31;
+shr.u32 %r54, %r53, 30;
+add.s32 %r55, %r47, %r54;
+shr.s32 %r3, %r55, 2;
+mov.u32 %r56, 1;
+max.u32 %r4, %r3, %r56;
+ld.global.u32 %r103, [%rd2];
+and.b32 %r7, %r4, 3;
+mov.u32 %r83, 0;
+
+BB0_2:
+ld.global.u32 %r57, [%rd1];
+mul.lo.s32 %r10, %r57, %r1;
+mul.lo.s32 %r11, %r10, %r103;
+setp.lt.u32	%p4, %r2, 7;
+@%p4 bra BB0_3;
+
+mov.u32 %r86, 1;
+mov.u32 %r91, 0;
+setp.eq.s32	%p5, %r7, 0;
+@%p5 bra BB0_5;
+
+setp.eq.s32	%p6, %r7, 1;
+@%p6 bra BB0_7;
+bra.uni BB0_8;
+
+BB0_7:
+mov.u32 %r86, %r91;
+bra.uni BB0_11;
+
+BB0_3:
+mov.u32 %r93, %r11;
+bra.uni BB0_14;
+
+BB0_5:
+mov.u32 %r93, %r91;
+bra.uni BB0_12;
+
+BB0_8:
+setp.eq.s32	%p7, %r7, 2;
+@%p7 bra BB0_10;
+
+mul.lo.s32 %r11, %r10, %r11;
+mov.u32 %r86, 2;
+
+BB0_10:
+mul.lo.s32 %r11, %r10, %r11;
+
+BB0_11:
+mul.lo.s32 %r11, %r10, %r11;
+add.s32 %r91, %r86, 1;
+mov.u32 %r93, %r11;
+
+BB0_12:
+setp.lt.u32	%p8, %r4, 4;
+@%p8 bra BB0_14;
+
+BB0_13:
+mul.lo.s32 %r63, %r10, %r11;
+mul.lo.s32 %r64, %r10, %r63;
+mul.lo.s32 %r65, %r10, %r64;
+mul.lo.s32 %r11, %r10, %r65;
+add.s32 %r91, %r91, 4;
+setp.lt.u32	%p9, %r91, %r3;
+mov.u32 %r93, %r11;
+@%p9 bra BB0_13;
+
+BB0_14:
+st.global.u32 [%rd1], %r93;
+mul.lo.s32 %r66, %r93, %r1;
+ld.global.u32 %r28, [%rd2];
+mul.lo.s32 %r29, %r66, %r28;
+@%p4 bra BB0_15;
+
+mov.u32 %r96, 0;
+setp.eq.s32	%p11, %r7, 0;
+@%p11 bra BB0_17;
+
+setp.eq.s32	%p12, %r7, 1;
+@%p12 bra BB0_23;
+
+setp.eq.s32	%p13, %r7, 2;
+@%p13 bra BB0_20;
+bra.uni BB0_21;
+
+BB0_20:
+mov.u32 %r96, %r56;
+bra.uni BB0_22;
+
+BB0_15:
+mov.u32 %r103, %r29;
+bra.uni BB0_26;
+
+BB0_17:
+mov.u32 %r103, %r96;
+bra.uni BB0_24;
+
+BB0_21:
+mul.lo.s32 %r72, %r29, %r1;
+mul.lo.s32 %r29, %r72, %r28;
+mov.u32 %r96, 2;
+
+BB0_22:
+mul.lo.s32 %r73, %r29, %r1;
+mul.lo.s32 %r29, %r73, %r28;
+
+BB0_23:
+mul.lo.s32 %r74, %r29, %r1;
+mul.lo.s32 %r29, %r74, %r28;
+add.s32 %r96, %r96, 1;
+mov.u32 %r103, %r29;
+
+BB0_24:
+setp.lt.u32	%p14, %r4, 4;
+@%p14 bra BB0_26;
+
+BB0_25:
+mul.lo.s32 %r75, %r29, %r1;
+mul.lo.s32 %r76, %r75, %r28;
+mul.lo.s32 %r77, %r76, %r1;
+mul.lo.s32 %r78, %r77, %r28;
+mul.lo.s32 %r79, %r78, %r1;
+mul.lo.s32 %r80, %r79, %r28;
+mul.lo.s32 %r81, %r80, %r1;
+mul.lo.s32 %r29, %r81, %r28;
+add.s32 %r96, %r96, 4;
+setp.lt.u32	%p15, %r96, %r3;
+mov.u32 %r103, %r29;
+@%p15 bra BB0_25;
+
+BB0_26:
+st.global.u32 [%rd2], %r103;
+add.s32 %r83, %r83, 1;
+setp.lt.u32	%p16, %r83, %r47;
+@%p16 bra BB0_2;
+
+BB0_27:
+ret;
+}
+
+
+.visible .entry _Z16PowerKernalEmptyPji(
+.param .u64 _Z16PowerKernalEmptyPji_param_0,
+.param .u32 _Z16PowerKernalEmptyPji_param_1
+)
+{
+.reg .b32 %r<5>;
+.reg .b64 %rd<5>;
+
+
+ld.param.u64 %rd1, [_Z16PowerKernalEmptyPji_param_0];
+mov.u32 %r2, %ntid.x;
+mov.u32 %r3, %ctaid.x;
+mov.u32 %r4, %tid.x;
+mad.lo.s32 %r1, %r3, %r2, %r4;
+bar.sync 0;
+cvta.to.global.u64 %rd2, %rd1;
+mul.wide.u32 %rd3, %r1, 4;
+add.s64 %rd4, %rd2, %rd3;
+st.global.u32 [%rd4], %r1;
+bar.sync 0;
+ret;
+}
+
+

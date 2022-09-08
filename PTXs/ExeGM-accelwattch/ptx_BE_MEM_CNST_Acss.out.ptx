@@ -1,0 +1,705 @@
+
+Fatbin elf code:
+================
+arch = sm_80
+code version = [1,7]
+producer = <unknown>
+host = linux
+compile_size = 64bit
+
+Fatbin ptx code:
+================
+arch = sm_80
+code version = [7,1]
+producer = <unknown>
+host = linux
+compile_size = 64bit
+compressed
+
+
+
+
+
+
+
+
+.version 7.1
+.target sm_80
+.address_size 64
+
+
+.const .align 4 .b8 ConstArray1[40960];
+
+.visible .entry _Z11PowerKernalPjS_y(
+.param .u64 _Z11PowerKernalPjS_y_param_0,
+.param .u64 _Z11PowerKernalPjS_y_param_1,
+.param .u64 _Z11PowerKernalPjS_y_param_2
+)
+{
+.reg .pred %p<6>;
+.reg .b32 %r<422>;
+.reg .b64 %rd<127>;
+
+
+ld.param.u64 %rd11, [_Z11PowerKernalPjS_y_param_0];
+ld.param.u64 %rd12, [_Z11PowerKernalPjS_y_param_1];
+ld.param.u64 %rd13, [_Z11PowerKernalPjS_y_param_2];
+setp.eq.s64	%p1, %rd13, 0;
+mov.u32 %r418, 0;
+@%p1 bra BB0_7;
+
+mov.u32 %r9, %tid.x;
+mov.u32 %r10, %ntid.x;
+mov.u32 %r11, %ctaid.x;
+mad.lo.s32 %r12, %r11, %r10, %r9;
+mul.wide.s32 %rd15, %r12, 4;
+add.s64 %rd1, %rd12, %rd15;
+mul.hi.s64 %rd16, %rd13, -6640827866535438581;
+add.s64 %rd17, %rd16, %rd13;
+shr.u64 %rd18, %rd17, 63;
+shr.s64 %rd19, %rd17, 6;
+add.s64 %rd20, %rd19, %rd18;
+mul.lo.s64 %rd3, %rd20, 100;
+sub.s64 %rd2, %rd13, %rd3;
+mov.u32 %r418, 0;
+mov.u64 %rd125, 0;
+setp.lt.s64	%p2, %rd3, 1;
+@%p2 bra BB0_5;
+
+neg.s64 %rd124, %rd13;
+mov.u32 %r418, 0;
+
+BB0_3:
+.pragma "nounroll";
+
+	ld.const.u32 %r14, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r14;
+
+	
+	ld.const.u32 %r18, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r18;
+
+	
+	ld.const.u32 %r22, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r22;
+
+	
+	ld.const.u32 %r26, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r26;
+
+	
+	ld.const.u32 %r30, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r30;
+
+	
+	ld.const.u32 %r34, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r34;
+
+	
+	ld.const.u32 %r38, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r38;
+
+	
+	ld.const.u32 %r42, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r42;
+
+	
+	ld.const.u32 %r46, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r46;
+
+	
+	ld.const.u32 %r50, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r50;
+
+	
+	ld.const.u32 %r54, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r54;
+
+	
+	ld.const.u32 %r58, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r58;
+
+	
+	ld.const.u32 %r62, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r62;
+
+	
+	ld.const.u32 %r66, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r66;
+
+	
+	ld.const.u32 %r70, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r70;
+
+	
+	ld.const.u32 %r74, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r74;
+
+	
+	ld.const.u32 %r78, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r78;
+
+	
+	ld.const.u32 %r82, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r82;
+
+	
+	ld.const.u32 %r86, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r86;
+
+	
+	ld.const.u32 %r90, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r90;
+
+	
+	ld.const.u32 %r94, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r94;
+
+	
+	ld.const.u32 %r98, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r98;
+
+	
+	ld.const.u32 %r102, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r102;
+
+	
+	ld.const.u32 %r106, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r106;
+
+	
+	ld.const.u32 %r110, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r110;
+
+	
+	ld.const.u32 %r114, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r114;
+
+	
+	ld.const.u32 %r118, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r118;
+
+	
+	ld.const.u32 %r122, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r122;
+
+	
+	ld.const.u32 %r126, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r126;
+
+	
+	ld.const.u32 %r130, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r130;
+
+	
+	ld.const.u32 %r134, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r134;
+
+	
+	ld.const.u32 %r138, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r138;
+
+	
+	ld.const.u32 %r142, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r142;
+
+	
+	ld.const.u32 %r146, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r146;
+
+	
+	ld.const.u32 %r150, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r150;
+
+	
+	ld.const.u32 %r154, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r154;
+
+	
+	ld.const.u32 %r158, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r158;
+
+	
+	ld.const.u32 %r162, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r162;
+
+	
+	ld.const.u32 %r166, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r166;
+
+	
+	ld.const.u32 %r170, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r170;
+
+	
+	ld.const.u32 %r174, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r174;
+
+	
+	ld.const.u32 %r178, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r178;
+
+	
+	ld.const.u32 %r182, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r182;
+
+	
+	ld.const.u32 %r186, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r186;
+
+	
+	ld.const.u32 %r190, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r190;
+
+	
+	ld.const.u32 %r194, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r194;
+
+	
+	ld.const.u32 %r198, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r198;
+
+	
+	ld.const.u32 %r202, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r202;
+
+	
+	ld.const.u32 %r206, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r206;
+
+	
+	ld.const.u32 %r210, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r210;
+
+	
+	ld.const.u32 %r214, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r214;
+
+	
+	ld.const.u32 %r218, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r218;
+
+	
+	ld.const.u32 %r222, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r222;
+
+	
+	ld.const.u32 %r226, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r226;
+
+	
+	ld.const.u32 %r230, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r230;
+
+	
+	ld.const.u32 %r234, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r234;
+
+	
+	ld.const.u32 %r238, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r238;
+
+	
+	ld.const.u32 %r242, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r242;
+
+	
+	ld.const.u32 %r246, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r246;
+
+	
+	ld.const.u32 %r250, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r250;
+
+	
+	ld.const.u32 %r254, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r254;
+
+	
+	ld.const.u32 %r258, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r258;
+
+	
+	ld.const.u32 %r262, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r262;
+
+	
+	ld.const.u32 %r266, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r266;
+
+	
+	ld.const.u32 %r270, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r270;
+
+	
+	ld.const.u32 %r274, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r274;
+
+	
+	ld.const.u32 %r278, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r278;
+
+	
+	ld.const.u32 %r282, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r282;
+
+	
+	ld.const.u32 %r286, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r286;
+
+	
+	ld.const.u32 %r290, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r290;
+
+	
+	ld.const.u32 %r294, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r294;
+
+	
+	ld.const.u32 %r298, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r298;
+
+	
+	ld.const.u32 %r302, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r302;
+
+	
+	ld.const.u32 %r306, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r306;
+
+	
+	ld.const.u32 %r310, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r310;
+
+	
+	ld.const.u32 %r314, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r314;
+
+	
+	ld.const.u32 %r318, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r318;
+
+	
+	ld.const.u32 %r322, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r322;
+
+	
+	ld.const.u32 %r326, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r326;
+
+	
+	ld.const.u32 %r330, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r330;
+
+	
+	ld.const.u32 %r334, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r334;
+
+	
+	ld.const.u32 %r338, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r338;
+
+	
+	ld.const.u32 %r342, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r342;
+
+	
+	ld.const.u32 %r346, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r346;
+
+	
+	ld.const.u32 %r350, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r350;
+
+	
+	ld.const.u32 %r354, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r354;
+
+	
+	ld.const.u32 %r358, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r358;
+
+	
+	ld.const.u32 %r362, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r362;
+
+	
+	ld.const.u32 %r366, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r366;
+
+	
+	ld.const.u32 %r370, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r370;
+
+	
+	ld.const.u32 %r374, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r374;
+
+	
+	ld.const.u32 %r378, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r378;
+
+	
+	ld.const.u32 %r382, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r382;
+
+	
+	ld.const.u32 %r386, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r386;
+
+	
+	ld.const.u32 %r390, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r390;
+
+	
+	ld.const.u32 %r394, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r394;
+
+	
+	ld.const.u32 %r398, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r398;
+
+	
+	ld.const.u32 %r402, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r402;
+
+	
+	ld.const.u32 %r406, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r406;
+
+	
+	ld.const.u32 %r410, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r410;
+
+	add.s64 %rd124, %rd124, 100;
+add.s64 %rd121, %rd2, %rd124;
+setp.ne.s64	%p3, %rd121, 0;
+@%p3 bra BB0_3;
+
+setp.eq.s64	%p4, %rd2, 0;
+mov.u64 %rd125, %rd3;
+@%p4 bra BB0_7;
+
+BB0_5:
+sub.s64 %rd126, %rd13, %rd125;
+
+BB0_6:
+.pragma "nounroll";
+
+	ld.const.u32 %r414, [%rd1];
+
+	
+	add.u32 %r418, %r418, %r414;
+
+	add.s64 %rd126, %rd126, -1;
+setp.ne.s64	%p5, %rd126, 0;
+@%p5 bra BB0_6;
+
+BB0_7:
+cvta.to.global.u64 %rd123, %rd11;
+st.global.u32 [%rd123], %r418;
+bar.sync 0;
+ret;
+}
+
+

@@ -1,0 +1,401 @@
+
+Fatbin elf code:
+================
+arch = sm_80
+code version = [1,7]
+producer = <unknown>
+host = linux
+compile_size = 64bit
+
+Fatbin ptx code:
+================
+arch = sm_80
+code version = [7,1]
+producer = <unknown>
+host = linux
+compile_size = 64bit
+compressed
+
+
+
+
+
+
+
+
+.version 7.1
+.target sm_80
+.address_size 64
+
+
+.global .texref texmem1;
+.global .texref texmem2;
+
+.visible .entry _Z12PowerKernal1PfS_ii(
+.param .u64 _Z12PowerKernal1PfS_ii_param_0,
+.param .u64 _Z12PowerKernal1PfS_ii_param_1,
+.param .u32 _Z12PowerKernal1PfS_ii_param_2,
+.param .u32 _Z12PowerKernal1PfS_ii_param_3
+)
+{
+.reg .pred %p<19>;
+.reg .f32 %f<372>;
+.reg .b32 %r<95>;
+.reg .b64 %rd<66>;
+
+
+ld.param.u64 %rd3, [_Z12PowerKernal1PfS_ii_param_0];
+ld.param.u64 %rd4, [_Z12PowerKernal1PfS_ii_param_1];
+ld.param.u32 %r11, [_Z12PowerKernal1PfS_ii_param_2];
+ld.param.u32 %r10, [_Z12PowerKernal1PfS_ii_param_3];
+mov.u32 %r12, %ctaid.x;
+mul.lo.s32 %r1, %r12, %r12;
+mov.u32 %r13, %tid.x;
+add.s32 %r2, %r1, %r13;
+setp.ge.s32	%p2, %r2, %r11;
+setp.eq.s32	%p3, %r10, 0;
+or.pred %p4, %p2, %p3;
+@%p4 bra BB0_23;
+
+shr.u32 %r18, %r2, 31;
+add.s32 %r19, %r2, %r18;
+and.b32 %r20, %r19, -2;
+sub.s32 %r21, %r2, %r20;
+setp.eq.s32	%p5, %r21, 1;
+mov.u32 %r91, 1;
+add.s32 %r22, %r1, 64;
+setp.lt.s32	%p6, %r2, %r22;
+and.pred %p1, %p5, %p6;
+and.b32 %r17, %r10, 3;
+mov.u32 %r94, 0;
+setp.eq.s32	%p7, %r17, 0;
+@%p7 bra BB0_13;
+
+setp.eq.s32	%p8, %r17, 1;
+@%p8 bra BB0_10;
+
+setp.eq.s32	%p9, %r17, 2;
+@%p9 bra BB0_7;
+
+mad.lo.s32 %r25, %r12, %r12, %r13;
+tex.1d.v4.f32.s32	{%f22, %f23, %f24, %f25}, [texmem1, {%r25}];
+cvta.to.global.u64 %rd5, %rd4;
+mul.wide.s32 %rd6, %r25, 4;
+add.s64 %rd7, %rd5, %rd6;
+ld.global.f32 %f26, [%rd7];
+add.f32 %f365, %f22, %f26;
+and.b32 %r26, %r25, 1;
+setp.eq.b32	%p10, %r26, 1;
+@%p10 bra BB0_6;
+
+tex.1d.v4.f32.s32	{%f27, %f28, %f29, %f30}, [texmem1, {%r25}];
+add.f32 %f31, %f365, %f27;
+tex.1d.v4.f32.s32	{%f32, %f33, %f34, %f35}, [texmem1, {%r25}];
+add.f32 %f36, %f31, %f32;
+tex.1d.v4.f32.s32	{%f37, %f38, %f39, %f40}, [texmem1, {%r25}];
+add.f32 %f365, %f36, %f37;
+
+BB0_6:
+tex.1d.v4.f32.s32	{%f41, %f42, %f43, %f44}, [texmem1, {%r25}];
+add.f32 %f45, %f365, %f41;
+tex.1d.v4.f32.s32	{%f46, %f47, %f48, %f49}, [texmem1, {%r25}];
+add.f32 %f50, %f45, %f46;
+tex.1d.v4.f32.s32	{%f51, %f52, %f53, %f54}, [texmem1, {%r25}];
+add.f32 %f55, %f50, %f51;
+mul.f32 %f56, %f55, 0f40200000;
+mul.f32 %f57, %f56, 0f40200000;
+mul.f32 %f58, %f57, 0f40200000;
+mul.f32 %f59, %f58, 0f40200000;
+mul.f32 %f60, %f59, 0f40200000;
+selp.f32	%f61, %f60, %f57, %p1;
+mul.f32 %f62, %f61, 0f40200000;
+tex.1d.v4.f32.s32	{%f63, %f64, %f65, %f66}, [texmem2, {%r25}];
+ld.global.f32 %f67, [%rd7];
+fma.rn.f32 %f68, %f63, %f67, %f62;
+shl.b32 %r34, %r25, 1;
+cvta.to.global.u64 %rd11, %rd3;
+mul.wide.s32 %rd12, %r34, 4;
+add.s64 %rd13, %rd11, %rd12;
+st.global.f32 [%rd13], %f68;
+add.s64 %rd14, %rd11, %rd6;
+ld.global.f32 %f69, [%rd14];
+add.f32 %f70, %f69, %f68;
+st.global.f32 [%rd7], %f70;
+mov.u32 %r91, 2;
+
+BB0_7:
+mad.lo.s32 %r37, %r12, %r12, %r13;
+tex.1d.v4.f32.s32	{%f71, %f72, %f73, %f74}, [texmem1, {%r37}];
+cvta.to.global.u64 %rd15, %rd4;
+mul.wide.s32 %rd16, %r37, 4;
+add.s64 %rd17, %rd15, %rd16;
+ld.global.f32 %f75, [%rd17];
+add.f32 %f366, %f71, %f75;
+and.b32 %r38, %r37, 1;
+setp.eq.b32	%p11, %r38, 1;
+@%p11 bra BB0_9;
+
+tex.1d.v4.f32.s32	{%f76, %f77, %f78, %f79}, [texmem1, {%r37}];
+add.f32 %f80, %f366, %f76;
+tex.1d.v4.f32.s32	{%f81, %f82, %f83, %f84}, [texmem1, {%r37}];
+add.f32 %f85, %f80, %f81;
+tex.1d.v4.f32.s32	{%f86, %f87, %f88, %f89}, [texmem1, {%r37}];
+add.f32 %f366, %f85, %f86;
+
+BB0_9:
+tex.1d.v4.f32.s32	{%f90, %f91, %f92, %f93}, [texmem1, {%r37}];
+add.f32 %f94, %f366, %f90;
+tex.1d.v4.f32.s32	{%f95, %f96, %f97, %f98}, [texmem1, {%r37}];
+add.f32 %f99, %f94, %f95;
+tex.1d.v4.f32.s32	{%f100, %f101, %f102, %f103}, [texmem1, {%r37}];
+add.f32 %f104, %f99, %f100;
+mul.f32 %f105, %f104, 0f40200000;
+mul.f32 %f106, %f105, 0f40200000;
+mul.f32 %f107, %f106, 0f40200000;
+mul.f32 %f108, %f107, 0f40200000;
+mul.f32 %f109, %f108, 0f40200000;
+selp.f32	%f110, %f109, %f106, %p1;
+mul.f32 %f111, %f110, 0f40200000;
+tex.1d.v4.f32.s32	{%f112, %f113, %f114, %f115}, [texmem2, {%r37}];
+ld.global.f32 %f116, [%rd17];
+fma.rn.f32 %f117, %f112, %f116, %f111;
+shl.b32 %r45, %r37, 1;
+cvta.to.global.u64 %rd21, %rd3;
+mul.wide.s32 %rd22, %r45, 4;
+add.s64 %rd23, %rd21, %rd22;
+st.global.f32 [%rd23], %f117;
+add.s64 %rd24, %rd21, %rd16;
+ld.global.f32 %f118, [%rd24];
+add.f32 %f119, %f118, %f117;
+st.global.f32 [%rd17], %f119;
+mov.u32 %r94, %r91;
+
+BB0_10:
+mad.lo.s32 %r48, %r12, %r12, %r13;
+tex.1d.v4.f32.s32	{%f120, %f121, %f122, %f123}, [texmem1, {%r48}];
+cvta.to.global.u64 %rd25, %rd4;
+mul.wide.s32 %rd26, %r48, 4;
+add.s64 %rd27, %rd25, %rd26;
+ld.global.f32 %f124, [%rd27];
+add.f32 %f367, %f120, %f124;
+and.b32 %r49, %r48, 1;
+setp.eq.b32	%p12, %r49, 1;
+@%p12 bra BB0_12;
+
+tex.1d.v4.f32.s32	{%f125, %f126, %f127, %f128}, [texmem1, {%r48}];
+add.f32 %f129, %f367, %f125;
+tex.1d.v4.f32.s32	{%f130, %f131, %f132, %f133}, [texmem1, {%r48}];
+add.f32 %f134, %f129, %f130;
+tex.1d.v4.f32.s32	{%f135, %f136, %f137, %f138}, [texmem1, {%r48}];
+add.f32 %f367, %f134, %f135;
+
+BB0_12:
+tex.1d.v4.f32.s32	{%f139, %f140, %f141, %f142}, [texmem1, {%r48}];
+add.f32 %f143, %f367, %f139;
+tex.1d.v4.f32.s32	{%f144, %f145, %f146, %f147}, [texmem1, {%r48}];
+add.f32 %f148, %f143, %f144;
+tex.1d.v4.f32.s32	{%f149, %f150, %f151, %f152}, [texmem1, {%r48}];
+add.f32 %f153, %f148, %f149;
+mul.f32 %f154, %f153, 0f40200000;
+mul.f32 %f155, %f154, 0f40200000;
+mul.f32 %f156, %f155, 0f40200000;
+mul.f32 %f157, %f156, 0f40200000;
+mul.f32 %f158, %f157, 0f40200000;
+selp.f32	%f159, %f158, %f155, %p1;
+mul.f32 %f160, %f159, 0f40200000;
+tex.1d.v4.f32.s32	{%f161, %f162, %f163, %f164}, [texmem2, {%r48}];
+ld.global.f32 %f165, [%rd27];
+fma.rn.f32 %f166, %f161, %f165, %f160;
+shl.b32 %r56, %r48, 1;
+cvta.to.global.u64 %rd31, %rd3;
+mul.wide.s32 %rd32, %r56, 4;
+add.s64 %rd33, %rd31, %rd32;
+st.global.f32 [%rd33], %f166;
+add.s64 %rd34, %rd31, %rd26;
+ld.global.f32 %f167, [%rd34];
+add.f32 %f168, %f167, %f166;
+st.global.f32 [%rd27], %f168;
+add.s32 %r94, %r94, 1;
+
+BB0_13:
+mad.lo.s32 %r59, %r12, %r12, %r13;
+and.b32 %r7, %r59, 1;
+setp.lt.u32	%p13, %r10, 4;
+@%p13 bra BB0_23;
+
+BB0_14:
+tex.1d.v4.f32.s32	{%f169, %f170, %f171, %f172}, [texmem1, {%r59}];
+cvta.to.global.u64 %rd35, %rd4;
+mul.wide.s32 %rd36, %r59, 4;
+add.s64 %rd37, %rd35, %rd36;
+ld.global.f32 %f173, [%rd37];
+add.f32 %f368, %f169, %f173;
+setp.ne.s32	%p14, %r7, 0;
+@%p14 bra BB0_16;
+
+tex.1d.v4.f32.s32	{%f174, %f175, %f176, %f177}, [texmem1, {%r59}];
+add.f32 %f178, %f368, %f174;
+tex.1d.v4.f32.s32	{%f179, %f180, %f181, %f182}, [texmem1, {%r59}];
+add.f32 %f183, %f178, %f179;
+tex.1d.v4.f32.s32	{%f184, %f185, %f186, %f187}, [texmem1, {%r59}];
+add.f32 %f368, %f183, %f184;
+
+BB0_16:
+tex.1d.v4.f32.s32	{%f188, %f189, %f190, %f191}, [texmem1, {%r59}];
+add.f32 %f192, %f368, %f188;
+tex.1d.v4.f32.s32	{%f193, %f194, %f195, %f196}, [texmem1, {%r59}];
+add.f32 %f197, %f192, %f193;
+tex.1d.v4.f32.s32	{%f198, %f199, %f200, %f201}, [texmem1, {%r59}];
+add.f32 %f202, %f197, %f198;
+mul.f32 %f203, %f202, 0f40200000;
+mul.f32 %f204, %f203, 0f40200000;
+mul.f32 %f205, %f204, 0f40200000;
+mul.f32 %f206, %f205, 0f40200000;
+mul.f32 %f207, %f206, 0f40200000;
+selp.f32	%f208, %f207, %f204, %p1;
+mul.f32 %f209, %f208, 0f40200000;
+tex.1d.v4.f32.s32	{%f210, %f211, %f212, %f213}, [texmem2, {%r59}];
+ld.global.f32 %f214, [%rd37];
+fma.rn.f32 %f215, %f210, %f214, %f209;
+shl.b32 %r69, %r59, 1;
+cvta.to.global.u64 %rd41, %rd3;
+mul.wide.s32 %rd42, %r69, 4;
+add.s64 %rd43, %rd41, %rd42;
+st.global.f32 [%rd43], %f215;
+add.s64 %rd44, %rd41, %rd36;
+ld.global.f32 %f216, [%rd44];
+add.f32 %f217, %f216, %f215;
+st.global.f32 [%rd37], %f217;
+tex.1d.v4.f32.s32	{%f218, %f219, %f220, %f221}, [texmem1, {%r59}];
+ld.global.f32 %f222, [%rd37];
+add.f32 %f369, %f218, %f222;
+@%p14 bra BB0_18;
+
+tex.1d.v4.f32.s32	{%f223, %f224, %f225, %f226}, [texmem1, {%r59}];
+add.f32 %f227, %f369, %f223;
+tex.1d.v4.f32.s32	{%f228, %f229, %f230, %f231}, [texmem1, {%r59}];
+add.f32 %f232, %f227, %f228;
+tex.1d.v4.f32.s32	{%f233, %f234, %f235, %f236}, [texmem1, {%r59}];
+add.f32 %f369, %f232, %f233;
+
+BB0_18:
+tex.1d.v4.f32.s32	{%f237, %f238, %f239, %f240}, [texmem1, {%r59}];
+add.f32 %f241, %f369, %f237;
+tex.1d.v4.f32.s32	{%f242, %f243, %f244, %f245}, [texmem1, {%r59}];
+add.f32 %f246, %f241, %f242;
+tex.1d.v4.f32.s32	{%f247, %f248, %f249, %f250}, [texmem1, {%r59}];
+add.f32 %f251, %f246, %f247;
+mul.f32 %f252, %f251, 0f40200000;
+mul.f32 %f253, %f252, 0f40200000;
+mul.f32 %f254, %f253, 0f40200000;
+mul.f32 %f255, %f254, 0f40200000;
+mul.f32 %f256, %f255, 0f40200000;
+selp.f32	%f257, %f256, %f253, %p1;
+mul.f32 %f258, %f257, 0f40200000;
+tex.1d.v4.f32.s32	{%f259, %f260, %f261, %f262}, [texmem2, {%r59}];
+ld.global.f32 %f263, [%rd37];
+fma.rn.f32 %f264, %f259, %f263, %f258;
+st.global.f32 [%rd43], %f264;
+ld.global.f32 %f265, [%rd44];
+add.f32 %f266, %f265, %f264;
+st.global.f32 [%rd37], %f266;
+tex.1d.v4.f32.s32	{%f267, %f268, %f269, %f270}, [texmem1, {%r59}];
+ld.global.f32 %f271, [%rd37];
+add.f32 %f370, %f267, %f271;
+@%p14 bra BB0_20;
+
+tex.1d.v4.f32.s32	{%f272, %f273, %f274, %f275}, [texmem1, {%r59}];
+add.f32 %f276, %f370, %f272;
+tex.1d.v4.f32.s32	{%f277, %f278, %f279, %f280}, [texmem1, {%r59}];
+add.f32 %f281, %f276, %f277;
+tex.1d.v4.f32.s32	{%f282, %f283, %f284, %f285}, [texmem1, {%r59}];
+add.f32 %f370, %f281, %f282;
+
+BB0_20:
+tex.1d.v4.f32.s32	{%f286, %f287, %f288, %f289}, [texmem1, {%r59}];
+add.f32 %f290, %f370, %f286;
+tex.1d.v4.f32.s32	{%f291, %f292, %f293, %f294}, [texmem1, {%r59}];
+add.f32 %f295, %f290, %f291;
+tex.1d.v4.f32.s32	{%f296, %f297, %f298, %f299}, [texmem1, {%r59}];
+add.f32 %f300, %f295, %f296;
+mul.f32 %f301, %f300, 0f40200000;
+mul.f32 %f302, %f301, 0f40200000;
+mul.f32 %f303, %f302, 0f40200000;
+mul.f32 %f304, %f303, 0f40200000;
+mul.f32 %f305, %f304, 0f40200000;
+selp.f32	%f306, %f305, %f302, %p1;
+mul.f32 %f307, %f306, 0f40200000;
+tex.1d.v4.f32.s32	{%f308, %f309, %f310, %f311}, [texmem2, {%r59}];
+ld.global.f32 %f312, [%rd37];
+fma.rn.f32 %f313, %f308, %f312, %f307;
+st.global.f32 [%rd43], %f313;
+ld.global.f32 %f314, [%rd44];
+add.f32 %f315, %f314, %f313;
+st.global.f32 [%rd37], %f315;
+tex.1d.v4.f32.s32	{%f316, %f317, %f318, %f319}, [texmem1, {%r59}];
+ld.global.f32 %f320, [%rd37];
+add.f32 %f371, %f316, %f320;
+@%p14 bra BB0_22;
+
+tex.1d.v4.f32.s32	{%f321, %f322, %f323, %f324}, [texmem1, {%r59}];
+add.f32 %f325, %f371, %f321;
+tex.1d.v4.f32.s32	{%f326, %f327, %f328, %f329}, [texmem1, {%r59}];
+add.f32 %f330, %f325, %f326;
+tex.1d.v4.f32.s32	{%f331, %f332, %f333, %f334}, [texmem1, {%r59}];
+add.f32 %f371, %f330, %f331;
+
+BB0_22:
+tex.1d.v4.f32.s32	{%f335, %f336, %f337, %f338}, [texmem1, {%r59}];
+add.f32 %f339, %f371, %f335;
+tex.1d.v4.f32.s32	{%f340, %f341, %f342, %f343}, [texmem1, {%r59}];
+add.f32 %f344, %f339, %f340;
+tex.1d.v4.f32.s32	{%f345, %f346, %f347, %f348}, [texmem1, {%r59}];
+add.f32 %f349, %f344, %f345;
+mul.f32 %f350, %f349, 0f40200000;
+mul.f32 %f351, %f350, 0f40200000;
+mul.f32 %f352, %f351, 0f40200000;
+mul.f32 %f353, %f352, 0f40200000;
+mul.f32 %f354, %f353, 0f40200000;
+selp.f32	%f355, %f354, %f351, %p1;
+mul.f32 %f356, %f355, 0f40200000;
+tex.1d.v4.f32.s32	{%f357, %f358, %f359, %f360}, [texmem2, {%r59}];
+ld.global.f32 %f361, [%rd37];
+fma.rn.f32 %f362, %f357, %f361, %f356;
+st.global.f32 [%rd43], %f362;
+ld.global.f32 %f363, [%rd44];
+add.f32 %f364, %f363, %f362;
+st.global.f32 [%rd37], %f364;
+add.s32 %r94, %r94, 4;
+setp.lt.u32	%p18, %r94, %r10;
+@%p18 bra BB0_14;
+
+BB0_23:
+ret;
+}
+
+
+.visible .entry _Z16PowerKernalEmptyPjii(
+.param .u64 _Z16PowerKernalEmptyPjii_param_0,
+.param .u32 _Z16PowerKernalEmptyPjii_param_1,
+.param .u32 _Z16PowerKernalEmptyPjii_param_2
+)
+{
+.reg .b32 %r<5>;
+.reg .b64 %rd<5>;
+
+
+ld.param.u64 %rd1, [_Z16PowerKernalEmptyPjii_param_0];
+mov.u32 %r2, %ntid.x;
+mov.u32 %r3, %ctaid.x;
+mov.u32 %r4, %tid.x;
+mad.lo.s32 %r1, %r3, %r2, %r4;
+bar.sync 0;
+cvta.to.global.u64 %rd2, %rd1;
+mul.wide.u32 %rd3, %r1, 4;
+add.s64 %rd4, %rd2, %rd3;
+st.global.u32 [%rd4], %r1;
+bar.sync 0;
+ret;
+}
+
+

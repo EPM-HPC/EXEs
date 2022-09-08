@@ -1,0 +1,599 @@
+
+Fatbin elf code:
+================
+arch = sm_80
+code version = [1,7]
+producer = <unknown>
+host = linux
+compile_size = 64bit
+
+Fatbin ptx code:
+================
+arch = sm_80
+code version = [7,1]
+producer = <unknown>
+host = linux
+compile_size = 64bit
+compressed
+
+
+
+
+
+
+
+
+.version 7.1
+.target sm_80
+.address_size 64
+
+
+.global .texref texmem1;
+.global .texref texmem2;
+.global .texref texmem3;
+.global .texref texmem4;
+.global .texref texmem5;
+.global .texref texmem6;
+.global .texref texmem7;
+.global .texref texmem9;
+.global .texref texmem8;
+.const .align 4 .b8 ConstArray1[1024];
+.const .align 4 .b8 ConstArray2[1024];
+.const .align 4 .b8 ConstArray3[1024];
+.const .align 4 .b8 ConstArray4[1024];
+.const .align 4 .b8 ConstArray5[1024];
+.const .align 4 .b8 ConstArray6[1024];
+.const .align 4 .b8 ConstArray7[1024];
+.const .align 4 .b8 ConstArray8[1024];
+
+
+
+
+
+.visible .entry _Z13tex_bm_kernelPfji(
+.param .u64 _Z13tex_bm_kernelPfji_param_0,
+.param .u32 _Z13tex_bm_kernelPfji_param_1,
+.param .u32 _Z13tex_bm_kernelPfji_param_2
+)
+{
+.reg .pred %p<9>;
+.reg .f32 %f<441>;
+.reg .b32 %r<123>;
+.reg .b64 %rd<89>;
+
+	.shared .align 4 .b8 _ZZ13tex_bm_kernelPfjiE2I1[1024];
+
+	.shared .align 4 .b8 _ZZ13tex_bm_kernelPfjiE2I2[1024];
+
+	.shared .align 4 .b8 _ZZ13tex_bm_kernelPfjiE2I4[1024];
+
+	.shared .align 4 .b8 _ZZ13tex_bm_kernelPfjiE2I6[1024];
+
+ld.param.u64 %rd19, [_Z13tex_bm_kernelPfji_param_0];
+ld.param.u32 %r15, [_Z13tex_bm_kernelPfji_param_1];
+ld.param.u32 %r14, [_Z13tex_bm_kernelPfji_param_2];
+mov.u32 %r1, %ctaid.x;
+shl.b32 %r16, %r1, 8;
+mov.u32 %r2, %tid.x;
+add.s32 %r3, %r16, %r2;
+cvt.rn.f32.s32	%f2, %r3;
+shr.s32 %r17, %r3, 31;
+shr.u32 %r18, %r17, 24;
+add.s32 %r19, %r3, %r18;
+and.b32 %r20, %r19, 1073741568;
+sub.s32 %r21, %r3, %r20;
+shl.b32 %r22, %r21, 2;
+mov.u32 %r23, _ZZ13tex_bm_kernelPfjiE2I1;
+add.s32 %r24, %r23, %r22;
+st.shared.f32 [%r24], %f2;
+shr.u32 %r25, %r3, 31;
+add.s32 %r26, %r3, %r25;
+shr.s32 %r27, %r26, 1;
+cvt.rn.f32.s32	%f1, %r27;
+mov.u32 %r28, _ZZ13tex_bm_kernelPfjiE2I2;
+add.s32 %r29, %r28, %r22;
+st.shared.f32 [%r29], %f1;
+add.s32 %r30, %r3, 2;
+cvt.rn.f32.s32	%f3, %r30;
+mov.u32 %r31, _ZZ13tex_bm_kernelPfjiE2I4;
+add.s32 %r32, %r31, %r22;
+st.shared.f32 [%r32], %f3;
+mov.u32 %r33, _ZZ13tex_bm_kernelPfjiE2I6;
+add.s32 %r34, %r33, %r22;
+st.shared.f32 [%r34], %f1;
+setp.ge.u32	%p1, %r3, %r15;
+setp.eq.s32	%p2, %r14, 0;
+or.pred %p3, %p1, %p2;
+@%p3 bra BB0_10;
+
+cvta.to.global.u64 %rd20, %rd19;
+mul.wide.s32 %rd21, %r3, 4;
+add.s64 %rd2, %rd20, %rd21;
+shl.b32 %r39, %r3, 1;
+mul.wide.s32 %rd22, %r39, 4;
+add.s64 %rd4, %rd20, %rd22;
+mul.lo.s32 %r40, %r3, 3;
+mul.wide.s32 %rd23, %r40, 4;
+add.s64 %rd6, %rd20, %rd23;
+shl.b32 %r41, %r3, 2;
+mul.wide.s32 %rd24, %r41, 4;
+add.s64 %rd8, %rd20, %rd24;
+mul.lo.s32 %r42, %r3, 5;
+mul.wide.s32 %rd25, %r42, 4;
+add.s64 %rd10, %rd20, %rd25;
+mul.lo.s32 %r43, %r3, 6;
+mul.wide.s32 %rd26, %r43, 4;
+add.s64 %rd12, %rd20, %rd26;
+mul.lo.s32 %r44, %r3, 7;
+mul.wide.s32 %rd27, %r44, 4;
+add.s64 %rd14, %rd20, %rd27;
+shl.b32 %r45, %r3, 3;
+mul.wide.s32 %rd28, %r45, 4;
+add.s64 %rd16, %rd20, %rd28;
+mul.lo.s32 %r46, %r3, 9;
+mul.wide.s32 %rd29, %r46, 4;
+add.s64 %rd18, %rd20, %rd29;
+and.b32 %r38, %r14, 3;
+mov.u32 %r118, 0;
+setp.eq.s32	%p4, %r38, 0;
+@%p4 bra BB0_7;
+
+setp.eq.s32	%p5, %r38, 1;
+@%p5 bra BB0_6;
+
+setp.eq.s32	%p6, %r38, 2;
+@%p6 bra BB0_5;
+
+tex.1d.v4.f32.s32	{%f4, %f5, %f6, %f7}, [texmem1, {%r3}];
+st.global.f32 [%rd2], %f4;
+tex.1d.v4.f32.s32	{%f8, %f9, %f10, %f11}, [texmem2, {%r3}];
+and.b32 %r48, %r3, 255;
+mul.wide.u32 %rd30, %r48, 4;
+mov.u64 %rd31, ConstArray1;
+add.s64 %rd32, %rd31, %rd30;
+ld.const.f32 %f12, [%rd32];
+add.f32 %f13, %f8, %f12;
+mad.lo.s32 %r49, %r1, 256, %r2;
+mul.wide.s32 %rd33, %r49, 4;
+add.s64 %rd34, %rd2, %rd33;
+st.global.f32 [%rd34], %f13;
+tex.1d.v4.f32.s32	{%f14, %f15, %f16, %f17}, [texmem3, {%r3}];
+shl.b32 %r50, %r48, 2;
+add.s32 %r52, %r23, %r50;
+ld.shared.f32 %f18, [%r52];
+mul.f32 %f19, %f14, %f18;
+add.s64 %rd35, %rd34, %rd33;
+st.global.f32 [%rd35], %f19;
+tex.1d.v4.f32.s32	{%f20, %f21, %f22, %f23}, [texmem4, {%r3}];
+mul.f32 %f24, %f20, %f1;
+add.s64 %rd36, %rd35, %rd33;
+st.global.f32 [%rd36], %f24;
+tex.1d.v4.f32.s32	{%f25, %f26, %f27, %f28}, [texmem5, {%r3}];
+mov.u64 %rd37, ConstArray2;
+add.s64 %rd38, %rd37, %rd30;
+ld.const.f32 %f29, [%rd38];
+div.rn.f32 %f30, %f25, %f29;
+add.s64 %rd39, %rd36, %rd33;
+st.global.f32 [%rd39], %f30;
+tex.1d.v4.f32.s32	{%f31, %f32, %f33, %f34}, [texmem6, {%r3}];
+add.s32 %r54, %r33, %r50;
+ld.shared.f32 %f35, [%r54];
+add.f32 %f36, %f31, %f35;
+add.s64 %rd40, %rd39, %rd33;
+st.global.f32 [%rd40], %f36;
+tex.1d.v4.f32.s32	{%f37, %f38, %f39, %f40}, [texmem7, {%r3}];
+add.s32 %r56, %r31, %r50;
+ld.shared.f32 %f41, [%r56];
+add.f32 %f42, %f37, %f41;
+add.s64 %rd41, %rd40, %rd33;
+st.global.f32 [%rd41], %f42;
+tex.1d.v4.f32.s32	{%f43, %f44, %f45, %f46}, [texmem8, {%r3}];
+mov.f32 %f47, 0f3F000000;
+mov.f32 %f48, 0f3BBB989D;
+fma.rn.f32 %f49, %f43, %f48, %f47;
+cvt.sat.f32.f32	%f50, %f49;
+mov.f32 %f51, 0f4B400001;
+mov.f32 %f52, 0f437C0000;
+fma.rm.f32 %f53, %f50, %f52, %f51;
+add.f32 %f54, %f53, 0fCB40007F;
+neg.f32 %f55, %f54;
+mov.f32 %f56, 0f3FB8AA3B;
+fma.rn.f32 %f57, %f43, %f56, %f55;
+mov.f32 %f58, 0f32A57060;
+fma.rn.f32 %f59, %f43, %f58, %f57;
+mov.b32 %r57, %f53;
+shl.b32 %r58, %r57, 23;
+mov.b32 %f60, %r58;
+ex2.approx.ftz.f32 %f61, %f59;
+mul.f32 %f62, %f61, %f60;
+add.s64 %rd42, %rd41, %rd33;
+st.global.f32 [%rd42], %f62;
+tex.1d.v4.f32.s32	{%f63, %f64, %f65, %f66}, [texmem9, {%r3}];
+abs.f32 %f67, %f63;
+sqrt.rn.f32 %f68, %f67;
+add.s64 %rd43, %rd42, %rd33;
+st.global.f32 [%rd43], %f68;
+mov.u32 %r118, 1;
+
+BB0_5:
+tex.1d.v4.f32.s32	{%f69, %f70, %f71, %f72}, [texmem1, {%r3}];
+st.global.f32 [%rd2], %f69;
+tex.1d.v4.f32.s32	{%f73, %f74, %f75, %f76}, [texmem2, {%r3}];
+add.s32 %r59, %r118, %r3;
+and.b32 %r60, %r59, 255;
+mul.wide.u32 %rd44, %r60, 4;
+mov.u64 %rd45, ConstArray1;
+add.s64 %rd46, %rd45, %rd44;
+ld.const.f32 %f77, [%rd46];
+add.f32 %f78, %f73, %f77;
+mad.lo.s32 %r61, %r1, 256, %r2;
+mul.wide.s32 %rd47, %r61, 4;
+add.s64 %rd48, %rd2, %rd47;
+st.global.f32 [%rd48], %f78;
+tex.1d.v4.f32.s32	{%f79, %f80, %f81, %f82}, [texmem3, {%r3}];
+shl.b32 %r62, %r60, 2;
+add.s32 %r64, %r23, %r62;
+ld.shared.f32 %f83, [%r64];
+mul.f32 %f84, %f79, %f83;
+add.s64 %rd49, %rd48, %rd47;
+st.global.f32 [%rd49], %f84;
+tex.1d.v4.f32.s32	{%f85, %f86, %f87, %f88}, [texmem4, {%r3}];
+mul.f32 %f89, %f85, %f1;
+add.s64 %rd50, %rd49, %rd47;
+st.global.f32 [%rd50], %f89;
+tex.1d.v4.f32.s32	{%f90, %f91, %f92, %f93}, [texmem5, {%r3}];
+mov.u64 %rd51, ConstArray2;
+add.s64 %rd52, %rd51, %rd44;
+ld.const.f32 %f94, [%rd52];
+div.rn.f32 %f95, %f90, %f94;
+add.s64 %rd53, %rd50, %rd47;
+st.global.f32 [%rd53], %f95;
+tex.1d.v4.f32.s32	{%f96, %f97, %f98, %f99}, [texmem6, {%r3}];
+add.s32 %r66, %r33, %r62;
+ld.shared.f32 %f100, [%r66];
+add.f32 %f101, %f96, %f100;
+add.s64 %rd54, %rd53, %rd47;
+st.global.f32 [%rd54], %f101;
+tex.1d.v4.f32.s32	{%f102, %f103, %f104, %f105}, [texmem7, {%r3}];
+add.s32 %r68, %r31, %r62;
+ld.shared.f32 %f106, [%r68];
+add.f32 %f107, %f102, %f106;
+add.s64 %rd55, %rd54, %rd47;
+st.global.f32 [%rd55], %f107;
+tex.1d.v4.f32.s32	{%f108, %f109, %f110, %f111}, [texmem8, {%r3}];
+mov.f32 %f112, 0f3F000000;
+mov.f32 %f113, 0f3BBB989D;
+fma.rn.f32 %f114, %f108, %f113, %f112;
+cvt.sat.f32.f32	%f115, %f114;
+mov.f32 %f116, 0f4B400001;
+mov.f32 %f117, 0f437C0000;
+fma.rm.f32 %f118, %f115, %f117, %f116;
+add.f32 %f119, %f118, 0fCB40007F;
+neg.f32 %f120, %f119;
+mov.f32 %f121, 0f3FB8AA3B;
+fma.rn.f32 %f122, %f108, %f121, %f120;
+mov.f32 %f123, 0f32A57060;
+fma.rn.f32 %f124, %f108, %f123, %f122;
+mov.b32 %r69, %f118;
+shl.b32 %r70, %r69, 23;
+mov.b32 %f125, %r70;
+ex2.approx.ftz.f32 %f126, %f124;
+mul.f32 %f127, %f126, %f125;
+add.s64 %rd56, %rd55, %rd47;
+st.global.f32 [%rd56], %f127;
+tex.1d.v4.f32.s32	{%f128, %f129, %f130, %f131}, [texmem9, {%r3}];
+abs.f32 %f132, %f128;
+sqrt.rn.f32 %f133, %f132;
+add.s64 %rd57, %rd56, %rd47;
+st.global.f32 [%rd57], %f133;
+add.s32 %r118, %r118, 1;
+
+BB0_6:
+tex.1d.v4.f32.s32	{%f134, %f135, %f136, %f137}, [texmem1, {%r3}];
+st.global.f32 [%rd2], %f134;
+tex.1d.v4.f32.s32	{%f138, %f139, %f140, %f141}, [texmem2, {%r3}];
+add.s32 %r71, %r118, %r3;
+and.b32 %r72, %r71, 255;
+mul.wide.u32 %rd58, %r72, 4;
+mov.u64 %rd59, ConstArray1;
+add.s64 %rd60, %rd59, %rd58;
+ld.const.f32 %f142, [%rd60];
+add.f32 %f143, %f138, %f142;
+mad.lo.s32 %r73, %r1, 256, %r2;
+mul.wide.s32 %rd61, %r73, 4;
+add.s64 %rd62, %rd2, %rd61;
+st.global.f32 [%rd62], %f143;
+tex.1d.v4.f32.s32	{%f144, %f145, %f146, %f147}, [texmem3, {%r3}];
+shl.b32 %r74, %r72, 2;
+add.s32 %r76, %r23, %r74;
+ld.shared.f32 %f148, [%r76];
+mul.f32 %f149, %f144, %f148;
+add.s64 %rd63, %rd62, %rd61;
+st.global.f32 [%rd63], %f149;
+tex.1d.v4.f32.s32	{%f150, %f151, %f152, %f153}, [texmem4, {%r3}];
+mul.f32 %f154, %f150, %f1;
+add.s64 %rd64, %rd63, %rd61;
+st.global.f32 [%rd64], %f154;
+tex.1d.v4.f32.s32	{%f155, %f156, %f157, %f158}, [texmem5, {%r3}];
+mov.u64 %rd65, ConstArray2;
+add.s64 %rd66, %rd65, %rd58;
+ld.const.f32 %f159, [%rd66];
+div.rn.f32 %f160, %f155, %f159;
+add.s64 %rd67, %rd64, %rd61;
+st.global.f32 [%rd67], %f160;
+tex.1d.v4.f32.s32	{%f161, %f162, %f163, %f164}, [texmem6, {%r3}];
+add.s32 %r78, %r33, %r74;
+ld.shared.f32 %f165, [%r78];
+add.f32 %f166, %f161, %f165;
+add.s64 %rd68, %rd67, %rd61;
+st.global.f32 [%rd68], %f166;
+tex.1d.v4.f32.s32	{%f167, %f168, %f169, %f170}, [texmem7, {%r3}];
+add.s32 %r80, %r31, %r74;
+ld.shared.f32 %f171, [%r80];
+add.f32 %f172, %f167, %f171;
+add.s64 %rd69, %rd68, %rd61;
+st.global.f32 [%rd69], %f172;
+tex.1d.v4.f32.s32	{%f173, %f174, %f175, %f176}, [texmem8, {%r3}];
+mov.f32 %f177, 0f3F000000;
+mov.f32 %f178, 0f3BBB989D;
+fma.rn.f32 %f179, %f173, %f178, %f177;
+cvt.sat.f32.f32	%f180, %f179;
+mov.f32 %f181, 0f4B400001;
+mov.f32 %f182, 0f437C0000;
+fma.rm.f32 %f183, %f180, %f182, %f181;
+add.f32 %f184, %f183, 0fCB40007F;
+neg.f32 %f185, %f184;
+mov.f32 %f186, 0f3FB8AA3B;
+fma.rn.f32 %f187, %f173, %f186, %f185;
+mov.f32 %f188, 0f32A57060;
+fma.rn.f32 %f189, %f173, %f188, %f187;
+mov.b32 %r81, %f183;
+shl.b32 %r82, %r81, 23;
+mov.b32 %f190, %r82;
+ex2.approx.ftz.f32 %f191, %f189;
+mul.f32 %f192, %f191, %f190;
+add.s64 %rd70, %rd69, %rd61;
+st.global.f32 [%rd70], %f192;
+tex.1d.v4.f32.s32	{%f193, %f194, %f195, %f196}, [texmem9, {%r3}];
+abs.f32 %f197, %f193;
+sqrt.rn.f32 %f198, %f197;
+add.s64 %rd71, %rd70, %rd61;
+st.global.f32 [%rd71], %f198;
+add.s32 %r118, %r118, 1;
+
+BB0_7:
+setp.lt.u32	%p7, %r14, 4;
+@%p7 bra BB0_10;
+
+add.s32 %r121, %r3, %r118;
+
+BB0_9:
+tex.1d.v4.f32.s32	{%f199, %f200, %f201, %f202}, [texmem1, {%r3}];
+st.global.f32 [%rd2], %f199;
+tex.1d.v4.f32.s32	{%f203, %f204, %f205, %f206}, [texmem2, {%r3}];
+and.b32 %r83, %r121, 255;
+mul.wide.u32 %rd72, %r83, 4;
+mov.u64 %rd73, ConstArray1;
+add.s64 %rd74, %rd73, %rd72;
+ld.const.f32 %f207, [%rd74];
+add.f32 %f208, %f203, %f207;
+st.global.f32 [%rd4], %f208;
+tex.1d.v4.f32.s32	{%f209, %f210, %f211, %f212}, [texmem3, {%r3}];
+shl.b32 %r84, %r121, 2;
+and.b32 %r85, %r84, 1020;
+add.s32 %r87, %r23, %r85;
+ld.shared.f32 %f213, [%r87];
+mul.f32 %f214, %f209, %f213;
+st.global.f32 [%rd6], %f214;
+tex.1d.v4.f32.s32	{%f215, %f216, %f217, %f218}, [texmem4, {%r3}];
+mul.f32 %f219, %f215, %f1;
+st.global.f32 [%rd8], %f219;
+tex.1d.v4.f32.s32	{%f220, %f221, %f222, %f223}, [texmem5, {%r3}];
+mov.u64 %rd75, ConstArray2;
+add.s64 %rd76, %rd75, %rd72;
+ld.const.f32 %f224, [%rd76];
+div.rn.f32 %f225, %f220, %f224;
+st.global.f32 [%rd10], %f225;
+tex.1d.v4.f32.s32	{%f226, %f227, %f228, %f229}, [texmem6, {%r3}];
+add.s32 %r89, %r33, %r85;
+ld.shared.f32 %f230, [%r89];
+add.f32 %f231, %f226, %f230;
+st.global.f32 [%rd12], %f231;
+tex.1d.v4.f32.s32	{%f232, %f233, %f234, %f235}, [texmem7, {%r3}];
+add.s32 %r91, %r31, %r85;
+ld.shared.f32 %f236, [%r91];
+add.f32 %f237, %f232, %f236;
+st.global.f32 [%rd14], %f237;
+tex.1d.v4.f32.s32	{%f238, %f239, %f240, %f241}, [texmem8, {%r3}];
+mov.f32 %f242, 0f3F000000;
+mov.f32 %f243, 0f3BBB989D;
+fma.rn.f32 %f244, %f238, %f243, %f242;
+cvt.sat.f32.f32	%f245, %f244;
+mov.f32 %f246, 0f4B400001;
+mov.f32 %f247, 0f437C0000;
+fma.rm.f32 %f248, %f245, %f247, %f246;
+add.f32 %f249, %f248, 0fCB40007F;
+neg.f32 %f250, %f249;
+mov.f32 %f251, 0f3FB8AA3B;
+fma.rn.f32 %f252, %f238, %f251, %f250;
+mov.f32 %f253, 0f32A57060;
+fma.rn.f32 %f254, %f238, %f253, %f252;
+mov.b32 %r92, %f248;
+shl.b32 %r93, %r92, 23;
+mov.b32 %f255, %r93;
+ex2.approx.ftz.f32 %f256, %f254;
+mul.f32 %f257, %f256, %f255;
+st.global.f32 [%rd16], %f257;
+tex.1d.v4.f32.s32	{%f258, %f259, %f260, %f261}, [texmem9, {%r3}];
+abs.f32 %f262, %f258;
+sqrt.rn.f32 %f263, %f262;
+st.global.f32 [%rd18], %f263;
+tex.1d.v4.f32.s32	{%f264, %f265, %f266, %f267}, [texmem1, {%r3}];
+st.global.f32 [%rd2], %f264;
+tex.1d.v4.f32.s32	{%f268, %f269, %f270, %f271}, [texmem2, {%r3}];
+add.s32 %r94, %r121, 1;
+mul.wide.u32 %rd77, %r94, 4;
+and.b64 %rd78, %rd77, 1020;
+add.s64 %rd79, %rd73, %rd78;
+ld.const.f32 %f272, [%rd79];
+add.f32 %f273, %f268, %f272;
+st.global.f32 [%rd4], %f273;
+tex.1d.v4.f32.s32	{%f274, %f275, %f276, %f277}, [texmem3, {%r3}];
+shl.b32 %r95, %r94, 2;
+and.b32 %r96, %r95, 1020;
+add.s32 %r97, %r23, %r96;
+ld.shared.f32 %f278, [%r97];
+mul.f32 %f279, %f274, %f278;
+st.global.f32 [%rd6], %f279;
+tex.1d.v4.f32.s32	{%f280, %f281, %f282, %f283}, [texmem4, {%r3}];
+mul.f32 %f284, %f280, %f1;
+st.global.f32 [%rd8], %f284;
+tex.1d.v4.f32.s32	{%f285, %f286, %f287, %f288}, [texmem5, {%r3}];
+add.s64 %rd80, %rd75, %rd78;
+ld.const.f32 %f289, [%rd80];
+div.rn.f32 %f290, %f285, %f289;
+st.global.f32 [%rd10], %f290;
+tex.1d.v4.f32.s32	{%f291, %f292, %f293, %f294}, [texmem6, {%r3}];
+add.s32 %r98, %r33, %r96;
+ld.shared.f32 %f295, [%r98];
+add.f32 %f296, %f291, %f295;
+st.global.f32 [%rd12], %f296;
+tex.1d.v4.f32.s32	{%f297, %f298, %f299, %f300}, [texmem7, {%r3}];
+add.s32 %r99, %r31, %r96;
+ld.shared.f32 %f301, [%r99];
+add.f32 %f302, %f297, %f301;
+st.global.f32 [%rd14], %f302;
+tex.1d.v4.f32.s32	{%f303, %f304, %f305, %f306}, [texmem8, {%r3}];
+fma.rn.f32 %f307, %f303, %f243, %f242;
+cvt.sat.f32.f32	%f308, %f307;
+fma.rm.f32 %f309, %f308, %f247, %f246;
+add.f32 %f310, %f309, 0fCB40007F;
+neg.f32 %f311, %f310;
+fma.rn.f32 %f312, %f303, %f251, %f311;
+fma.rn.f32 %f313, %f303, %f253, %f312;
+mov.b32 %r100, %f309;
+shl.b32 %r101, %r100, 23;
+mov.b32 %f314, %r101;
+ex2.approx.ftz.f32 %f315, %f313;
+mul.f32 %f316, %f315, %f314;
+st.global.f32 [%rd16], %f316;
+tex.1d.v4.f32.s32	{%f317, %f318, %f319, %f320}, [texmem9, {%r3}];
+abs.f32 %f321, %f317;
+sqrt.rn.f32 %f322, %f321;
+st.global.f32 [%rd18], %f322;
+tex.1d.v4.f32.s32	{%f323, %f324, %f325, %f326}, [texmem1, {%r3}];
+st.global.f32 [%rd2], %f323;
+tex.1d.v4.f32.s32	{%f327, %f328, %f329, %f330}, [texmem2, {%r3}];
+add.s32 %r102, %r121, 2;
+mul.wide.u32 %rd81, %r102, 4;
+and.b64 %rd82, %rd81, 1020;
+add.s64 %rd83, %rd73, %rd82;
+ld.const.f32 %f331, [%rd83];
+add.f32 %f332, %f327, %f331;
+st.global.f32 [%rd4], %f332;
+tex.1d.v4.f32.s32	{%f333, %f334, %f335, %f336}, [texmem3, {%r3}];
+shl.b32 %r103, %r102, 2;
+and.b32 %r104, %r103, 1020;
+add.s32 %r105, %r23, %r104;
+ld.shared.f32 %f337, [%r105];
+mul.f32 %f338, %f333, %f337;
+st.global.f32 [%rd6], %f338;
+tex.1d.v4.f32.s32	{%f339, %f340, %f341, %f342}, [texmem4, {%r3}];
+mul.f32 %f343, %f339, %f1;
+st.global.f32 [%rd8], %f343;
+tex.1d.v4.f32.s32	{%f344, %f345, %f346, %f347}, [texmem5, {%r3}];
+add.s64 %rd84, %rd75, %rd82;
+ld.const.f32 %f348, [%rd84];
+div.rn.f32 %f349, %f344, %f348;
+st.global.f32 [%rd10], %f349;
+tex.1d.v4.f32.s32	{%f350, %f351, %f352, %f353}, [texmem6, {%r3}];
+add.s32 %r106, %r33, %r104;
+ld.shared.f32 %f354, [%r106];
+add.f32 %f355, %f350, %f354;
+st.global.f32 [%rd12], %f355;
+tex.1d.v4.f32.s32	{%f356, %f357, %f358, %f359}, [texmem7, {%r3}];
+add.s32 %r107, %r31, %r104;
+ld.shared.f32 %f360, [%r107];
+add.f32 %f361, %f356, %f360;
+st.global.f32 [%rd14], %f361;
+tex.1d.v4.f32.s32	{%f362, %f363, %f364, %f365}, [texmem8, {%r3}];
+fma.rn.f32 %f366, %f362, %f243, %f242;
+cvt.sat.f32.f32	%f367, %f366;
+fma.rm.f32 %f368, %f367, %f247, %f246;
+add.f32 %f369, %f368, 0fCB40007F;
+neg.f32 %f370, %f369;
+fma.rn.f32 %f371, %f362, %f251, %f370;
+fma.rn.f32 %f372, %f362, %f253, %f371;
+mov.b32 %r108, %f368;
+shl.b32 %r109, %r108, 23;
+mov.b32 %f373, %r109;
+ex2.approx.ftz.f32 %f374, %f372;
+mul.f32 %f375, %f374, %f373;
+st.global.f32 [%rd16], %f375;
+tex.1d.v4.f32.s32	{%f376, %f377, %f378, %f379}, [texmem9, {%r3}];
+abs.f32 %f380, %f376;
+sqrt.rn.f32 %f381, %f380;
+st.global.f32 [%rd18], %f381;
+tex.1d.v4.f32.s32	{%f382, %f383, %f384, %f385}, [texmem1, {%r3}];
+st.global.f32 [%rd2], %f382;
+tex.1d.v4.f32.s32	{%f386, %f387, %f388, %f389}, [texmem2, {%r3}];
+add.s32 %r110, %r121, 3;
+mul.wide.u32 %rd85, %r110, 4;
+and.b64 %rd86, %rd85, 1020;
+add.s64 %rd87, %rd73, %rd86;
+ld.const.f32 %f390, [%rd87];
+add.f32 %f391, %f386, %f390;
+st.global.f32 [%rd4], %f391;
+tex.1d.v4.f32.s32	{%f392, %f393, %f394, %f395}, [texmem3, {%r3}];
+shl.b32 %r111, %r110, 2;
+and.b32 %r112, %r111, 1020;
+add.s32 %r113, %r23, %r112;
+ld.shared.f32 %f396, [%r113];
+mul.f32 %f397, %f392, %f396;
+st.global.f32 [%rd6], %f397;
+tex.1d.v4.f32.s32	{%f398, %f399, %f400, %f401}, [texmem4, {%r3}];
+mul.f32 %f402, %f398, %f1;
+st.global.f32 [%rd8], %f402;
+tex.1d.v4.f32.s32	{%f403, %f404, %f405, %f406}, [texmem5, {%r3}];
+add.s64 %rd88, %rd75, %rd86;
+ld.const.f32 %f407, [%rd88];
+div.rn.f32 %f408, %f403, %f407;
+st.global.f32 [%rd10], %f408;
+tex.1d.v4.f32.s32	{%f409, %f410, %f411, %f412}, [texmem6, {%r3}];
+add.s32 %r114, %r33, %r112;
+ld.shared.f32 %f413, [%r114];
+add.f32 %f414, %f409, %f413;
+st.global.f32 [%rd12], %f414;
+tex.1d.v4.f32.s32	{%f415, %f416, %f417, %f418}, [texmem7, {%r3}];
+add.s32 %r115, %r31, %r112;
+ld.shared.f32 %f419, [%r115];
+add.f32 %f420, %f415, %f419;
+st.global.f32 [%rd14], %f420;
+tex.1d.v4.f32.s32	{%f421, %f422, %f423, %f424}, [texmem8, {%r3}];
+fma.rn.f32 %f425, %f421, %f243, %f242;
+cvt.sat.f32.f32	%f426, %f425;
+fma.rm.f32 %f427, %f426, %f247, %f246;
+add.f32 %f428, %f427, 0fCB40007F;
+neg.f32 %f429, %f428;
+fma.rn.f32 %f430, %f421, %f251, %f429;
+fma.rn.f32 %f431, %f421, %f253, %f430;
+mov.b32 %r116, %f427;
+shl.b32 %r117, %r116, 23;
+mov.b32 %f432, %r117;
+ex2.approx.ftz.f32 %f433, %f431;
+mul.f32 %f434, %f433, %f432;
+st.global.f32 [%rd16], %f434;
+tex.1d.v4.f32.s32	{%f435, %f436, %f437, %f438}, [texmem9, {%r3}];
+abs.f32 %f439, %f435;
+sqrt.rn.f32 %f440, %f439;
+st.global.f32 [%rd18], %f440;
+add.s32 %r121, %r121, 4;
+add.s32 %r118, %r118, 4;
+setp.lt.u32	%p8, %r118, %r14;
+@%p8 bra BB0_9;
+
+BB0_10:
+ret;
+}
+
+

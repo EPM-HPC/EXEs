@@ -1,0 +1,411 @@
+
+Fatbin elf code:
+================
+arch = sm_80
+code version = [1,7]
+producer = <unknown>
+host = linux
+compile_size = 64bit
+
+Fatbin ptx code:
+================
+arch = sm_80
+code version = [7,1]
+producer = <unknown>
+host = linux
+compile_size = 64bit
+compressed
+
+
+
+
+
+
+
+
+.version 7.1
+.target sm_80
+.address_size 64
+
+
+
+.visible .entry _Z12PowerKernal2PKfS0_Pfi(
+.param .u64 _Z12PowerKernal2PKfS0_Pfi_param_0,
+.param .u64 _Z12PowerKernal2PKfS0_Pfi_param_1,
+.param .u64 _Z12PowerKernal2PKfS0_Pfi_param_2,
+.param .u32 _Z12PowerKernal2PKfS0_Pfi_param_3
+)
+{
+.reg .pred %p<6>;
+.reg .f32 %f<323>;
+.reg .b32 %r<23>;
+.reg .b64 %rd<9>;
+
+
+ld.param.u64 %rd3, [_Z12PowerKernal2PKfS0_Pfi_param_0];
+ld.param.u64 %rd2, [_Z12PowerKernal2PKfS0_Pfi_param_2];
+ld.param.u32 %r11, [_Z12PowerKernal2PKfS0_Pfi_param_3];
+mov.u32 %r12, %ctaid.x;
+mov.u32 %r13, %ntid.x;
+mov.u32 %r14, %tid.x;
+mad.lo.s32 %r1, %r12, %r13, %r14;
+cvta.to.global.u64 %rd1, %rd3;
+setp.eq.s32	%p1, %r11, 0;
+mov.f32 %f321, 0f00000000;
+mov.f32 %f322, %f321;
+@%p1 bra BB0_9;
+
+mul.wide.s32 %rd4, %r1, 4;
+add.s64 %rd5, %rd1, %rd4;
+ld.global.f32 %f320, [%rd5];
+mul.hi.s32 %r16, %r11, 1374389535;
+shr.u32 %r17, %r16, 31;
+shr.s32 %r18, %r16, 5;
+add.s32 %r19, %r18, %r17;
+mul.lo.s32 %r21, %r19, 100;
+sub.s32 %r2, %r11, %r21;
+mov.u32 %r15, 0;
+setp.lt.s32	%p2, %r21, 1;
+@%p2 bra BB0_2;
+
+sub.s32 %r20, %r2, %r11;
+
+BB0_4:
+.pragma "nounroll";
+sin.approx.f32 %f16, %f320;
+cos.approx.f32 %f17, %f16;
+sin.approx.f32 %f18, %f17;
+sin.approx.f32 %f19, %f18;
+cos.approx.f32 %f20, %f19;
+sin.approx.f32 %f21, %f20;
+sin.approx.f32 %f22, %f21;
+cos.approx.f32 %f23, %f22;
+sin.approx.f32 %f24, %f23;
+sin.approx.f32 %f25, %f24;
+cos.approx.f32 %f26, %f25;
+sin.approx.f32 %f27, %f26;
+sin.approx.f32 %f28, %f27;
+cos.approx.f32 %f29, %f28;
+sin.approx.f32 %f30, %f29;
+sin.approx.f32 %f31, %f30;
+cos.approx.f32 %f32, %f31;
+sin.approx.f32 %f33, %f32;
+sin.approx.f32 %f34, %f33;
+cos.approx.f32 %f35, %f34;
+sin.approx.f32 %f36, %f35;
+sin.approx.f32 %f37, %f36;
+cos.approx.f32 %f38, %f37;
+sin.approx.f32 %f39, %f38;
+sin.approx.f32 %f40, %f39;
+cos.approx.f32 %f41, %f40;
+sin.approx.f32 %f42, %f41;
+sin.approx.f32 %f43, %f42;
+cos.approx.f32 %f44, %f43;
+sin.approx.f32 %f45, %f44;
+sin.approx.f32 %f46, %f45;
+cos.approx.f32 %f47, %f46;
+sin.approx.f32 %f48, %f47;
+sin.approx.f32 %f49, %f48;
+cos.approx.f32 %f50, %f49;
+sin.approx.f32 %f51, %f50;
+sin.approx.f32 %f52, %f51;
+cos.approx.f32 %f53, %f52;
+sin.approx.f32 %f54, %f53;
+sin.approx.f32 %f55, %f54;
+cos.approx.f32 %f56, %f55;
+sin.approx.f32 %f57, %f56;
+sin.approx.f32 %f58, %f57;
+cos.approx.f32 %f59, %f58;
+sin.approx.f32 %f60, %f59;
+sin.approx.f32 %f61, %f60;
+cos.approx.f32 %f62, %f61;
+sin.approx.f32 %f63, %f62;
+sin.approx.f32 %f64, %f63;
+cos.approx.f32 %f65, %f64;
+sin.approx.f32 %f66, %f65;
+sin.approx.f32 %f67, %f66;
+cos.approx.f32 %f68, %f67;
+sin.approx.f32 %f69, %f68;
+sin.approx.f32 %f70, %f69;
+cos.approx.f32 %f71, %f70;
+sin.approx.f32 %f72, %f71;
+sin.approx.f32 %f73, %f72;
+cos.approx.f32 %f74, %f73;
+sin.approx.f32 %f75, %f74;
+sin.approx.f32 %f76, %f75;
+cos.approx.f32 %f77, %f76;
+sin.approx.f32 %f78, %f77;
+sin.approx.f32 %f79, %f78;
+cos.approx.f32 %f80, %f79;
+sin.approx.f32 %f81, %f80;
+sin.approx.f32 %f82, %f81;
+cos.approx.f32 %f83, %f82;
+sin.approx.f32 %f84, %f83;
+sin.approx.f32 %f85, %f84;
+cos.approx.f32 %f86, %f85;
+sin.approx.f32 %f87, %f86;
+sin.approx.f32 %f88, %f87;
+cos.approx.f32 %f89, %f88;
+sin.approx.f32 %f90, %f89;
+sin.approx.f32 %f91, %f90;
+cos.approx.f32 %f92, %f91;
+sin.approx.f32 %f93, %f92;
+sin.approx.f32 %f94, %f93;
+cos.approx.f32 %f95, %f94;
+sin.approx.f32 %f96, %f95;
+sin.approx.f32 %f97, %f96;
+cos.approx.f32 %f98, %f97;
+sin.approx.f32 %f99, %f98;
+sin.approx.f32 %f100, %f99;
+cos.approx.f32 %f101, %f100;
+sin.approx.f32 %f102, %f101;
+sin.approx.f32 %f103, %f102;
+cos.approx.f32 %f104, %f103;
+sin.approx.f32 %f105, %f104;
+sin.approx.f32 %f106, %f105;
+cos.approx.f32 %f107, %f106;
+sin.approx.f32 %f108, %f107;
+sin.approx.f32 %f109, %f108;
+cos.approx.f32 %f110, %f109;
+sin.approx.f32 %f111, %f110;
+sin.approx.f32 %f112, %f111;
+cos.approx.f32 %f113, %f112;
+sin.approx.f32 %f114, %f113;
+sin.approx.f32 %f115, %f114;
+cos.approx.f32 %f116, %f115;
+sin.approx.f32 %f117, %f116;
+sin.approx.f32 %f118, %f117;
+cos.approx.f32 %f119, %f118;
+sin.approx.f32 %f120, %f119;
+sin.approx.f32 %f121, %f120;
+cos.approx.f32 %f122, %f121;
+sin.approx.f32 %f123, %f122;
+sin.approx.f32 %f124, %f123;
+cos.approx.f32 %f125, %f124;
+sin.approx.f32 %f126, %f125;
+sin.approx.f32 %f127, %f126;
+cos.approx.f32 %f128, %f127;
+sin.approx.f32 %f129, %f128;
+sin.approx.f32 %f130, %f129;
+cos.approx.f32 %f131, %f130;
+sin.approx.f32 %f132, %f131;
+sin.approx.f32 %f133, %f132;
+cos.approx.f32 %f134, %f133;
+sin.approx.f32 %f135, %f134;
+sin.approx.f32 %f136, %f135;
+cos.approx.f32 %f137, %f136;
+sin.approx.f32 %f138, %f137;
+sin.approx.f32 %f139, %f138;
+cos.approx.f32 %f140, %f139;
+sin.approx.f32 %f141, %f140;
+sin.approx.f32 %f142, %f141;
+cos.approx.f32 %f143, %f142;
+sin.approx.f32 %f144, %f143;
+sin.approx.f32 %f145, %f144;
+cos.approx.f32 %f146, %f145;
+sin.approx.f32 %f147, %f146;
+sin.approx.f32 %f148, %f147;
+cos.approx.f32 %f149, %f148;
+sin.approx.f32 %f150, %f149;
+sin.approx.f32 %f151, %f150;
+cos.approx.f32 %f152, %f151;
+sin.approx.f32 %f153, %f152;
+sin.approx.f32 %f154, %f153;
+cos.approx.f32 %f155, %f154;
+sin.approx.f32 %f156, %f155;
+sin.approx.f32 %f157, %f156;
+cos.approx.f32 %f158, %f157;
+sin.approx.f32 %f159, %f158;
+sin.approx.f32 %f160, %f159;
+cos.approx.f32 %f161, %f160;
+sin.approx.f32 %f162, %f161;
+sin.approx.f32 %f163, %f162;
+cos.approx.f32 %f164, %f163;
+sin.approx.f32 %f165, %f164;
+sin.approx.f32 %f166, %f165;
+cos.approx.f32 %f167, %f166;
+sin.approx.f32 %f168, %f167;
+sin.approx.f32 %f169, %f168;
+cos.approx.f32 %f170, %f169;
+sin.approx.f32 %f171, %f170;
+sin.approx.f32 %f172, %f171;
+cos.approx.f32 %f173, %f172;
+sin.approx.f32 %f174, %f173;
+sin.approx.f32 %f175, %f174;
+cos.approx.f32 %f176, %f175;
+sin.approx.f32 %f177, %f176;
+sin.approx.f32 %f178, %f177;
+cos.approx.f32 %f179, %f178;
+sin.approx.f32 %f180, %f179;
+sin.approx.f32 %f181, %f180;
+cos.approx.f32 %f182, %f181;
+sin.approx.f32 %f183, %f182;
+sin.approx.f32 %f184, %f183;
+cos.approx.f32 %f185, %f184;
+sin.approx.f32 %f186, %f185;
+sin.approx.f32 %f187, %f186;
+cos.approx.f32 %f188, %f187;
+sin.approx.f32 %f189, %f188;
+sin.approx.f32 %f190, %f189;
+cos.approx.f32 %f191, %f190;
+sin.approx.f32 %f192, %f191;
+sin.approx.f32 %f193, %f192;
+cos.approx.f32 %f194, %f193;
+sin.approx.f32 %f195, %f194;
+sin.approx.f32 %f196, %f195;
+cos.approx.f32 %f197, %f196;
+sin.approx.f32 %f198, %f197;
+sin.approx.f32 %f199, %f198;
+cos.approx.f32 %f200, %f199;
+sin.approx.f32 %f201, %f200;
+sin.approx.f32 %f202, %f201;
+cos.approx.f32 %f203, %f202;
+sin.approx.f32 %f204, %f203;
+sin.approx.f32 %f205, %f204;
+cos.approx.f32 %f206, %f205;
+sin.approx.f32 %f207, %f206;
+sin.approx.f32 %f208, %f207;
+cos.approx.f32 %f209, %f208;
+sin.approx.f32 %f210, %f209;
+sin.approx.f32 %f211, %f210;
+cos.approx.f32 %f212, %f211;
+sin.approx.f32 %f213, %f212;
+sin.approx.f32 %f214, %f213;
+cos.approx.f32 %f215, %f214;
+sin.approx.f32 %f216, %f215;
+sin.approx.f32 %f217, %f216;
+cos.approx.f32 %f218, %f217;
+sin.approx.f32 %f219, %f218;
+sin.approx.f32 %f220, %f219;
+cos.approx.f32 %f221, %f220;
+sin.approx.f32 %f222, %f221;
+sin.approx.f32 %f223, %f222;
+cos.approx.f32 %f224, %f223;
+sin.approx.f32 %f225, %f224;
+sin.approx.f32 %f226, %f225;
+cos.approx.f32 %f227, %f226;
+sin.approx.f32 %f228, %f227;
+sin.approx.f32 %f229, %f228;
+cos.approx.f32 %f230, %f229;
+sin.approx.f32 %f231, %f230;
+sin.approx.f32 %f232, %f231;
+cos.approx.f32 %f233, %f232;
+sin.approx.f32 %f234, %f233;
+sin.approx.f32 %f235, %f234;
+cos.approx.f32 %f236, %f235;
+sin.approx.f32 %f237, %f236;
+sin.approx.f32 %f238, %f237;
+cos.approx.f32 %f239, %f238;
+sin.approx.f32 %f240, %f239;
+sin.approx.f32 %f241, %f240;
+cos.approx.f32 %f242, %f241;
+sin.approx.f32 %f243, %f242;
+sin.approx.f32 %f244, %f243;
+cos.approx.f32 %f245, %f244;
+sin.approx.f32 %f246, %f245;
+sin.approx.f32 %f247, %f246;
+cos.approx.f32 %f248, %f247;
+sin.approx.f32 %f249, %f248;
+sin.approx.f32 %f250, %f249;
+cos.approx.f32 %f251, %f250;
+sin.approx.f32 %f252, %f251;
+sin.approx.f32 %f253, %f252;
+cos.approx.f32 %f254, %f253;
+sin.approx.f32 %f255, %f254;
+sin.approx.f32 %f256, %f255;
+cos.approx.f32 %f257, %f256;
+sin.approx.f32 %f258, %f257;
+sin.approx.f32 %f259, %f258;
+cos.approx.f32 %f260, %f259;
+sin.approx.f32 %f261, %f260;
+sin.approx.f32 %f262, %f261;
+cos.approx.f32 %f263, %f262;
+sin.approx.f32 %f264, %f263;
+sin.approx.f32 %f265, %f264;
+cos.approx.f32 %f266, %f265;
+sin.approx.f32 %f267, %f266;
+sin.approx.f32 %f268, %f267;
+cos.approx.f32 %f269, %f268;
+sin.approx.f32 %f270, %f269;
+sin.approx.f32 %f271, %f270;
+cos.approx.f32 %f272, %f271;
+sin.approx.f32 %f273, %f272;
+sin.approx.f32 %f274, %f273;
+cos.approx.f32 %f275, %f274;
+sin.approx.f32 %f276, %f275;
+sin.approx.f32 %f277, %f276;
+cos.approx.f32 %f278, %f277;
+sin.approx.f32 %f279, %f278;
+sin.approx.f32 %f280, %f279;
+cos.approx.f32 %f281, %f280;
+sin.approx.f32 %f282, %f281;
+sin.approx.f32 %f283, %f282;
+cos.approx.f32 %f284, %f283;
+sin.approx.f32 %f285, %f284;
+sin.approx.f32 %f286, %f285;
+cos.approx.f32 %f287, %f286;
+sin.approx.f32 %f288, %f287;
+sin.approx.f32 %f289, %f288;
+cos.approx.f32 %f290, %f289;
+sin.approx.f32 %f291, %f290;
+sin.approx.f32 %f292, %f291;
+cos.approx.f32 %f293, %f292;
+sin.approx.f32 %f294, %f293;
+sin.approx.f32 %f295, %f294;
+cos.approx.f32 %f296, %f295;
+sin.approx.f32 %f297, %f296;
+sin.approx.f32 %f298, %f297;
+cos.approx.f32 %f299, %f298;
+sin.approx.f32 %f300, %f299;
+sin.approx.f32 %f301, %f300;
+cos.approx.f32 %f302, %f301;
+sin.approx.f32 %f303, %f302;
+sin.approx.f32 %f304, %f303;
+cos.approx.f32 %f305, %f304;
+sin.approx.f32 %f306, %f305;
+sin.approx.f32 %f307, %f306;
+cos.approx.f32 %f308, %f307;
+sin.approx.f32 %f309, %f308;
+sin.approx.f32 %f310, %f309;
+cos.approx.f32 %f311, %f310;
+sin.approx.f32 %f312, %f311;
+sin.approx.f32 %f313, %f312;
+cos.approx.f32 %f321, %f313;
+sin.approx.f32 %f320, %f321;
+add.s32 %r20, %r20, 100;
+setp.ne.s32	%p3, %r20, 0;
+@%p3 bra BB0_4;
+
+setp.eq.s32	%p4, %r2, 0;
+@%p4 bra BB0_8;
+bra.uni BB0_6;
+
+BB0_2:
+mov.u32 %r21, %r15;
+
+BB0_6:
+sub.s32 %r22, %r21, %r11;
+
+BB0_7:
+.pragma "nounroll";
+sin.approx.f32 %f314, %f320;
+cos.approx.f32 %f321, %f314;
+sin.approx.f32 %f320, %f321;
+add.s32 %r22, %r22, 1;
+setp.ne.s32	%p5, %r22, 0;
+@%p5 bra BB0_7;
+
+BB0_8:
+cos.approx.f32 %f322, %f320;
+
+BB0_9:
+cvta.to.global.u64 %rd6, %rd2;
+mul.wide.s32 %rd7, %r1, 4;
+add.s64 %rd8, %rd6, %rd7;
+sub.f32 %f315, %f321, %f322;
+st.global.f32 [%rd8], %f315;
+bar.sync 0;
+ret;
+}
+
+
